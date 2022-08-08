@@ -86,3 +86,24 @@
 {"level":"DEBUG","time":"2022-08-08T11:43:32.710+0800","caller":"webapp.io/main.go:58","msg":"redis init success…"}
 {"level":"INFO","time":"2022-08-08T11:43:37.116+0800","caller":"webapp.io/main.go:83","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2022-08-08T11:43:37.118+0800","caller":"webapp.io/main.go:92","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-08T18:05:04.475+0800","caller":"webapp.io/main.go:43","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-08T18:05:04.595+0800","caller":"webapp.io/main.go:51","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-08T18:05:04.608+0800","caller":"webapp.io/main.go:59","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-08T18:05:10.694+0800","caller":"webapp.io/main.go:84","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-08T18:05:10.696+0800","caller":"webapp.io/main.go:93","msg":"Server exiting"}
+{"level":"FATAL","time":"2022-08-08T18:05:10.697+0800","caller":"webapp.io/main.go:97","msg":"snowflake uuid failed: ","error":"parsing time \"20220808\" as \"2006-01-02\": cannot parse \"0808\" as \"-\""}
+{"level":"DEBUG","time":"2022-08-08T18:05:37.626+0800","caller":"webapp.io/main.go:43","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-08T18:05:37.656+0800","caller":"webapp.io/main.go:51","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-08T18:05:37.660+0800","caller":"webapp.io/main.go:59","msg":"redis init success…"}
+{"level":"FATAL","time":"2022-08-08T18:05:37.660+0800","caller":"webapp.io/main.go:71","msg":"snowflake uuid failed: ","error":"parsing time \"20220808\" as \"2006-01-02\": cannot parse \"0808\" as \"-\""}
+{"level":"DEBUG","time":"2022-08-08T18:06:43.956+0800","caller":"webapp.io/main.go:43","msg":"logger init success…"}
+{"level":"FATAL","time":"2022-08-08T18:06:43.956+0800","caller":"webapp.io/main.go:47","msg":"snowflake uuid failed: ","error":"parsing time \"20220808\" as \"2006-01-02\": cannot parse \"0808\" as \"-\""}
+{"level":"DEBUG","time":"2022-08-08T18:06:48.321+0800","caller":"webapp.io/main.go:43","msg":"logger init success…"}
+{"level":"FATAL","time":"2022-08-08T18:06:48.322+0800","caller":"webapp.io/main.go:47","msg":"snowflake uuid failed: ","error":"parsing time \"20220808\" as \"2006-01-02\": cannot parse \"0808\" as \"-\""}
+{"level":"DEBUG","time":"2022-08-08T18:07:03.498+0800","caller":"webapp.io/main.go:42","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-08T18:07:03.527+0800","caller":"webapp.io/main.go:58","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-08T18:07:03.532+0800","caller":"webapp.io/main.go:66","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-08T18:07:21.053+0800","caller":"logger/logger.go:70","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36","errors":"","cost":0.000075625}
+{"level":"INFO","time":"2022-08-08T18:07:36.413+0800","caller":"logger/logger.go:70","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36","errors":"","cost":0.000070083}
+{"level":"INFO","time":"2022-08-08T18:08:44.904+0800","caller":"webapp.io/main.go:91","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-08T18:08:44.910+0800","caller":"webapp.io/main.go:100","msg":"Server exiting"}

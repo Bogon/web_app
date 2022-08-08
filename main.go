@@ -10,10 +10,10 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+	"webapp.io/appRoutes"
 	"webapp.io/dao/mysql"
 	"webapp.io/dao/redis"
 	"webapp.io/logger"
-	"webapp.io/routes"
 	"webapp.io/settings"
 )
 
@@ -40,6 +40,14 @@ func main() {
 	}
 	defer zap.L().Sync()
 	zap.L().Debug("logger init success…")
+
+	// 7. 分布式ID生成演示
+	//if err := snowflakeID.Init("20220808", 1); err != nil {
+	//	zap.L().Fatal("snowflake uuid failed: ", zap.Error(err))
+	//	return
+	//}
+	//uuid := snowflakeID.GetId()
+	//zap.L().Debug(fmt.Sprintf("uuid: %v \n", uuid))
 
 	// 3. 初始化 MySQL 连接
 	if err := mysql.Init(settings.Conf.MySQLConf); err != nil {
@@ -90,4 +98,5 @@ func main() {
 	}
 
 	zap.L().Info("Server exiting")
+
 }
