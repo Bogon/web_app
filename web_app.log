@@ -107,3 +107,14 @@
 {"level":"INFO","time":"2022-08-08T18:07:36.413+0800","caller":"logger/logger.go:70","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36","errors":"","cost":0.000070083}
 {"level":"INFO","time":"2022-08-08T18:08:44.904+0800","caller":"webapp.io/main.go:91","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2022-08-08T18:08:44.910+0800","caller":"webapp.io/main.go:100","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-09T09:30:08.393+0800","caller":"webapp.io/main.go:42","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-09T09:30:08.435+0800","caller":"webapp.io/main.go:58","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-09T09:30:08.458+0800","caller":"webapp.io/main.go:66","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-09T09:30:12.954+0800","caller":"webapp.io/main.go:91","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-09T09:30:12.956+0800","caller":"webapp.io/main.go:100","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-10T09:21:36.779+0800","caller":"webapp.io/main.go:43","msg":"logger init success…"}
+{"level":"FATAL","time":"2022-08-10T09:21:36.779+0800","caller":"webapp.io/main.go:47","msg":"snowflake uuid failed: ","error":"parsing time \"20220808\" as \"2006-01-02\": cannot parse \"0808\" as \"-\""}
+{"level":"DEBUG","time":"2022-08-10T09:22:15.147+0800","caller":"webapp.io/main.go:43","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-10T09:22:15.148+0800","caller":"webapp.io/main.go:51","msg":"uuid: 745475242196992 \n"}
+{"level":"DEBUG","time":"2022-08-10T09:22:15.198+0800","caller":"webapp.io/main.go:59","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-10T09:22:15.205+0800","caller":"webapp.io/main.go:67","msg":"redis init success…"}

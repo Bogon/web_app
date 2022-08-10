@@ -15,10 +15,11 @@ var Conf = new(WebAppConfig)
 // @property {MySQLConf}  - AppConf: Application configuration
 // @property {RedisConf}  - AppConf: Application configuration
 type WebAppConfig struct {
-	*AppConf   `mapstructure:"app" json:"app"`
-	*LogConf   `mapstructure:"log" json:"log"`
-	*MySQLConf `mapstructure:"mysql" json:"mysql"`
-	*RedisConf `mapstructure:"redis" json:"redis"`
+	*AppConf       `mapstructure:"app" json:"app"`
+	*LogConf       `mapstructure:"log" json:"log"`
+	*MySQLConf     `mapstructure:"mysql" json:"mysql"`
+	*RedisConf     `mapstructure:"redis" json:"redis"`
+	*SnowflakeConf `mapstructure:"snowflake" json:"snowflake"`
 }
 
 // AppConf It's a struct with three fields, each of which is a string.
@@ -80,6 +81,15 @@ type RedisConf struct {
 	DB       int    `mapstructure:"db" json:"db"`
 	Password string `mapstructure:"password" json:"password"`
 	PoolSize int    `mapstructure:"pool_szie" json:"pool_size"`
+}
+
+// SnowflakeConf `SnowflakeConf` is a struct with two fields, `StartTime` and `MachineID`, both of which are strings.
+// @property {string} StartTime - The start time of the snowflake ID, the default is 2018-01-01 00:00:00, the start time
+// must be the same for all machines, otherwise the ID will be repeated.
+// @property {int} MachineID - The machine ID is a unique number that identifies the machine that is generating the IDs.
+type SnowflakeConf struct {
+	StartTime string `mapstructure:"start_time" json:"start_time"`
+	MachineID int64  `mapstructure:"  machine_id" json:"machine_id"`
 }
 
 // Init It reads a configuration file, and then watches it for changes
