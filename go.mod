@@ -12,20 +12,20 @@ replace webapp.io/dao/redis => ./dao/redis
 
 replace webapp.io/appRoutes => ./appRoutes
 
-replace webapp.io/pkg/snowflakeID => ./pkg/snowflakeID
+replace webapp.io/controllers/userHanlder => ./controllers/userHandler
+
+replace webapp.io/models => ./models
 
 require (
-	go.uber.org/zap v1.21.0
+	go.uber.org/zap v1.22.0
 	webapp.io/appRoutes v0.0.0-00010101000000-000000000000
 	webapp.io/dao/mysql v0.0.0-00010101000000-000000000000
 	webapp.io/dao/redis v0.0.0-00010101000000-000000000000
 	webapp.io/logger v0.0.0-00010101000000-000000000000
-	webapp.io/pkg/snowflakeID v0.0.0-00010101000000-000000000000
 	webapp.io/settings v0.0.0-00010101000000-000000000000
 )
 
 require (
-	github.com/bwmarrin/snowflake v0.3.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.8.1 // indirect
@@ -65,4 +65,6 @@ require (
 	gopkg.in/ini.v1 v1.66.4 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+	webapp.io/controllers/userHanlder v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/models v0.0.0-00010101000000-000000000000 // indirect
 )

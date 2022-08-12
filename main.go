@@ -14,7 +14,6 @@ import (
 	"webapp.io/dao/mysql"
 	"webapp.io/dao/redis"
 	"webapp.io/logger"
-	"webapp.io/pkg/snowflakeID"
 	"webapp.io/settings"
 )
 
@@ -42,14 +41,6 @@ func main() {
 	defer zap.L().Sync()
 	zap.L().Debug("logger init success…")
 
-	// 7. 分布式ID生成演示
-	if err := snowflakeID.Init(settings.Conf.SnowflakeConf.StartTime, settings.Conf.SnowflakeConf.MachineID); err != nil {
-		zap.L().Fatal("snowflake uuid failed: ", zap.Error(err))
-		return
-	}
-	uuid := snowflakeID.GetId()
-	zap.L().Debug(fmt.Sprintf("uuid: %v \n", uuid))
-
 	// 3. 初始化 MySQL 连接
 	if err := mysql.Init(settings.Conf.MySQLConf); err != nil {
 		zap.L().Error("mysql init failed, error:", zap.Error(err))
@@ -67,7 +58,7 @@ func main() {
 	zap.L().Debug("redis init success…")
 
 	// 5. 注册路由
-	r := routes.Setup()
+	r := appRoutes.Setup()
 	// 6. 启动服务（优雅关机）
 	srv := &http.Server{
 		Addr:    fmt.Sprintf(":%d", settings.Conf.AppConf.Port),

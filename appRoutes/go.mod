@@ -6,9 +6,12 @@ replace webapp.io/logger => ../logger
 
 replace webapp.io/settings => ../settings
 
+replace webapp.io/controllers/userHanlder => ../controllers/userHandler
+
 require (
 	github.com/gin-gonic/gin v1.8.1
 	github.com/spf13/viper v1.12.0
+	webapp.io/controllers/userHanlder v0.0.0-00010101000000-000000000000
 	webapp.io/logger v0.0.0-00010101000000-000000000000
 )
 
