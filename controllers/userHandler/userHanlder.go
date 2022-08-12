@@ -11,7 +11,7 @@ import (
 // UserSignUpHandler is a function that takes a pointer to a gin.Context and returns nothing.
 func UserSignUpHandler(c *gin.Context) {
 	// 1. 获取参数和参数校验
-	var p models.ParamSignUp
+	p := new(models.ParamSignUp)
 
 	if err := c.ShouldBindJSON(&p); err != nil {
 		zap.L().Error("SignUp invalidate param", zap.Error(err))
