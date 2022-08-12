@@ -207,3 +207,8 @@
 {"level":"DEBUG","time":"2022-08-12T16:09:41.182+0800","caller":"webapp.io/main.go:58","msg":"redis init success…"}
 {"level":"INFO","time":"2022-08-12T16:09:59.780+0800","caller":"webapp.io/main.go:83","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2022-08-12T16:09:59.782+0800","caller":"webapp.io/main.go:92","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-12T16:14:10.340+0800","caller":"webapp.io/main.go:42","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-12T16:14:10.502+0800","caller":"webapp.io/main.go:50","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-12T16:14:10.540+0800","caller":"webapp.io/main.go:58","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-12T16:22:14.841+0800","caller":"webapp.io/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-12T16:22:14.847+0800","caller":"webapp.io/main.go:92","msg":"Server exiting"}
