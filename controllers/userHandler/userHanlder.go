@@ -1,11 +1,14 @@
 package userHanlder
 
 import (
+	"errors"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 	"go.uber.org/zap"
-	"net/http"
+	"webapp.io/controllers/responseCode"
+	"webapp.io/controllers/responseHandler"
 	"webapp.io/controllers/validatorHandler"
+	"webapp.io/dao/mysql"
 	"webapp.io/logic/user"
 	"webapp.io/models"
 )
@@ -21,37 +24,26 @@ func UserSignUpHandler(c *gin.Context) {
 		errs, ok := err.(validator.ValidationErrors)
 		if !ok {
 			// 请求参数有误，直接返回响应
-			c.JSON(http.StatusOK, gin.H{
-				"code": 10002,
-				"msg":  err.Error(),
-				"data": nil,
-			})
+			responseHandler.ResponseError(c, responseCode.CodeInvalidParam)
+			return
 		}
 		// 请求参数有误，直接返回响应
-		c.JSON(http.StatusOK, gin.H{
-			"code": 10002,
-			"msg":  validatorHandler.RemoveTopStruct(errs.Translate(validatorHandler.Trans)),
-			"data": nil,
-		})
+		responseHandler.ResponseWithMsg(c, responseCode.CodeInvalidParam, validatorHandler.RemoveTopStruct(errs.Translate(validatorHandler.Trans)))
 		return
 	}
 
 	// 2. 业务处理
 	if err := user.SignUp(p); err != nil {
-		c.JSON(http.StatusOK, gin.H{
-			"code": 10003,
-			"msg":  "注册失败",
-			"data": nil,
-		})
+		if errors.Is(err, mysql.ErrorUserExist) {
+			responseHandler.ResponseError(c, responseCode.CodeUserExist)
+			return
+		}
+		responseHandler.ResponseError(c, responseCode.CodeServerBasy)
 		return
 	}
 
 	// 3. 返回响应
-	c.JSON(http.StatusOK, gin.H{
-		"msg":  "success",
-		"code": 0,
-		"data": nil,
-	})
+	responseHandler.ResponseSuccess(c, "注册成功")
 }
 
 // UserLoginHandler is a function that takes a pointer to a gin.Context and returns nothing.
@@ -64,34 +56,23 @@ func UserLoginHandler(c *gin.Context) {
 		errs, ok := err.(validator.ValidationErrors)
 		if !ok {
 			// 请求参数有误，直接返回响应
-			c.JSON(http.StatusOK, gin.H{
-				"code": 10002,
-				"msg":  err.Error(),
-				"data": nil,
-			})
+			responseHandler.ResponseError(c, responseCode.CodeInvalidParam)
+			return
 		}
 		// 请求参数有误，直接返回响应
-		c.JSON(http.StatusOK, gin.H{
-			"code": 10002,
-			"msg":  validatorHandler.RemoveTopStruct(errs.Translate(validatorHandler.Trans)),
-			"data": nil,
-		})
+		responseHandler.ResponseWithMsg(c, responseCode.CodeInvalidParam, validatorHandler.RemoveTopStruct(errs.Translate(validatorHandler.Trans)))
 		return
 	}
 	// 2. 业务逻辑处理
 	if err := user.Login(u); err != nil {
 		zap.L().Error("user.Login failed", zap.String("username", u.Username), zap.Error(err))
-		c.JSON(http.StatusOK, gin.H{
-			"code": 10004,
-			"msg":  err.Error(),
-			"data": nil,
-		})
+		if errors.Is(err, mysql.ErrorUserExist) {
+			responseHandler.ResponseError(c, responseCode.CodeUserNotExist)
+			return
+		}
+		responseHandler.ResponseError(c, responseCode.CodeInvalidPassword)
 		return
 	}
 	// 3. 返回响应
-	c.JSON(http.StatusOK, gin.H{
-		"msg":  "登录成功",
-		"code": 0,
-		"data": nil,
-	})
+	responseHandler.ResponseSuccess(c, "登录成功")
 }

@@ -14,10 +14,16 @@ replace webapp.io/controllers/validatorHandler => ../validatorHandler
 
 replace webapp.io/settings => ../../settings
 
+replace webapp.io/controllers/responseCode => ../responseCode
+
+replace webapp.io/controllers/responseHandler => ../responseHandler
+
 require (
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-playground/validator/v10 v10.11.0
 	go.uber.org/zap v1.22.0
+	webapp.io/controllers/responseCode v0.0.0-00010101000000-000000000000
+	webapp.io/controllers/responseHandler v0.0.0-00010101000000-000000000000
 	webapp.io/controllers/validatorHandler v0.0.0-00010101000000-000000000000
 	webapp.io/logic/user v0.0.0-00010101000000-000000000000
 	webapp.io/models v0.0.0-00010101000000-000000000000

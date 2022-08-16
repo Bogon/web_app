@@ -22,6 +22,10 @@ replace webapp.io/dao/mysql => ./dao/mysql
 
 replace webapp.io/controllers/validatorHandler => ./controllers/validatorHandler
 
+replace webapp.io/controllers/responseHandler => ./controllers/responseHandler
+
+replace webapp.io/controllers/responseCode => ./controllers/responseCode
+
 require (
 	go.uber.org/zap v1.22.0
 	webapp.io/appRoutes v0.0.0-00010101000000-000000000000
@@ -29,6 +33,7 @@ require (
 	webapp.io/dao/mysql v0.0.0-00010101000000-000000000000
 	webapp.io/dao/redis v0.0.0-00010101000000-000000000000
 	webapp.io/logger v0.0.0-00010101000000-000000000000
+	webapp.io/pkg/snowflakeID v0.0.0-00010101000000-000000000000
 	webapp.io/settings v0.0.0-00010101000000-000000000000
 )
 
@@ -73,8 +78,9 @@ require (
 	gopkg.in/ini.v1 v1.66.4 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+	webapp.io/controllers/responseCode v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/controllers/responseHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/userHanlder v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/user v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/models v0.0.0-00010101000000-000000000000 // indirect
-	webapp.io/pkg/snowflakeID v0.0.0-00010101000000-000000000000 // indirect
 )
