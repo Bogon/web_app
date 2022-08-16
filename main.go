@@ -66,7 +66,7 @@ func main() {
 	}
 
 	// 5. 注册路由
-	r := appRoutes.Setup()
+	r := appRoutes.Setup(settings.Conf.AppConf.Mode)
 
 	// 5.1 初始化分布式ID生成框架
 	if err := snowflakeID.Init("2022-08-16", 1); err != nil {

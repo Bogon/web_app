@@ -2,6 +2,7 @@ package mysql
 
 import (
 	"crypto/md5"
+	"database/sql"
 	"encoding/hex"
 	"errors"
 	"webapp.io/models"
@@ -35,8 +36,30 @@ func InsertUser(user *models.User) (err error) {
 	return
 }
 
+// encryptPassword It takes a string, appends a secret string to it, and then returns the MD5 hash of the result
 func encryptPassword(oPassword string) string {
 	h := md5.New()
 	h.Write([]byte(secret))
 	return hex.EncodeToString(h.Sum([]byte(oPassword)))
+}
+
+// Login takes a pointer to a ParamLogin struct and does nothing
+func Login(p *models.User) (err error) {
+	oPassword := p.Password
+	sqlStr := `select user_id, username, password from user where username = ?`
+	err = db.Get(p, sqlStr, p.Username)
+	if err == sql.ErrNoRows {
+		return errors.New("用户不存在！")
+	}
+	if err != nil {
+		// 查询数据库失败
+		return
+	}
+	// 判断密码是否正确
+	password := encryptPassword(oPassword)
+	if password == p.Password {
+		return
+	} else {
+		return errors.New("密码错误")
+	}
 }

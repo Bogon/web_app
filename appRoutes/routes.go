@@ -9,12 +9,17 @@ import (
 	"webapp.io/logger"
 )
 
-func Setup() *gin.Engine {
+func Setup(mode string) *gin.Engine {
+	if mode == gin.ReleaseMode {
+		gin.SetMode(gin.ReleaseMode) // gin 设置成发布模式
+	}
 	r := gin.New()
 	r.Use(logger.GinLogger(), logger.GinRecovery(true))
 
-	// 注册业务路由 - 登录
+	// 注册业务路由 - 注册
 	r.POST("signup", userHanlder.UserSignUpHandler)
+	// 注册业务路由 - 登录
+	r.POST("login", userHanlder.UserLoginHandler)
 
 	r.GET("/", func(c *gin.Context) {
 		appVersion := viper.GetString("app.version")
@@ -26,9 +31,7 @@ func Setup() *gin.Engine {
 			"msg":    "pong",
 			"status": 0,
 			"data": gin.H{
-				"user":     "root",
-				"avatar":   "",
-				"nickname": "夏利",
+				"tips": "success",
 			},
 		})
 	})

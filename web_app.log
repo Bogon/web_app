@@ -175,3 +175,35 @@
 {"level":"DEBUG","time":"2022-08-16T16:03:21.635+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
 {"level":"DEBUG","time":"2022-08-16T16:03:21.638+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
 {"level":"INFO","time":"2022-08-16T16:04:06.223+0800","caller":"logger/logger.go:81","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.115118834}
+{"level":"ERROR","time":"2022-08-16T16:07:28.975+0800","caller":"userHandler/userHanlder.go:19","msg":"SignUp invalidate param","error":"Key: 'ParamSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag\nKey: 'ParamSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2022-08-16T16:07:28.980+0800","caller":"logger/logger.go:81","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.008435583}
+{"level":"INFO","time":"2022-08-16T16:11:15.143+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-16T16:11:15.146+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-16T16:11:30.754+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:11:30.775+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:11:30.779+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-16T16:11:42.295+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-16T16:11:42.297+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-16T16:12:04.632+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:12:04.644+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:12:04.647+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-16T16:12:58.103+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-16T16:12:58.103+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-16T16:13:04.689+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:13:04.706+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:13:04.714+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-16T16:47:05.147+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-16T16:47:05.153+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-16T16:47:20.442+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:47:20.476+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:47:20.488+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-16T16:48:07.811+0800","caller":"logger/logger.go:81","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.029495708}
+{"level":"ERROR","time":"2022-08-16T16:48:32.152+0800","caller":"userHandler/userHanlder.go:62","msg":"Login invalidate param","error":"Key: 'ParamLogin.password' Error:Field validation for 'password' failed on the 'required' tag"}
+{"level":"INFO","time":"2022-08-16T16:48:32.152+0800","caller":"logger/logger.go:81","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000404541}
+{"level":"INFO","time":"2022-08-16T16:48:36.017+0800","caller":"logger/logger.go:81","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.010854042}
+{"level":"ERROR","time":"2022-08-16T16:49:20.446+0800","caller":"userHandler/userHanlder.go:83","msg":"user.Login failed","error":"密码错误"}
+{"level":"INFO","time":"2022-08-16T16:49:20.446+0800","caller":"logger/logger.go:81","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.006201833}
+{"level":"ERROR","time":"2022-08-16T16:49:25.049+0800","caller":"userHandler/userHanlder.go:83","msg":"user.Login failed","error":"用户不存在！"}
+{"level":"INFO","time":"2022-08-16T16:49:25.049+0800","caller":"logger/logger.go:81","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.008635958}
+{"level":"INFO","time":"2022-08-16T16:51:35.028+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-16T16:51:35.031+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
