@@ -163,3 +163,15 @@
 {"level":"INFO","time":"2022-08-16T15:15:44.719+0800","caller":"logger/logger.go:70","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0221485}
 {"level":"INFO","time":"2022-08-16T15:20:07.685+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2022-08-16T15:20:07.688+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-16T16:02:50.992+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:02:51.045+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:02:51.049+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"FATAL","time":"2022-08-16T16:02:51.051+0800","caller":"webapp.io/main.go:86","msg":"listen: %s\n","error":"listen tcp :8000: bind: address already in use"}
+{"level":"DEBUG","time":"2022-08-16T16:03:09.004+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:03:09.018+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:03:09.022+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"FATAL","time":"2022-08-16T16:03:09.023+0800","caller":"webapp.io/main.go:86","msg":"listen: %s\n","error":"listen tcp :9000: bind: address already in use"}
+{"level":"DEBUG","time":"2022-08-16T16:03:21.594+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:03:21.635+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-16T16:03:21.638+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-16T16:04:06.223+0800","caller":"logger/logger.go:81","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.115118834}

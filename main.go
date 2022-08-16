@@ -36,7 +36,7 @@ func main() {
 	}
 
 	// 2. 初始化日志
-	if err := logger.Init(settings.Conf.LogConf); err != nil {
+	if err := logger.Init(settings.Conf.LogConf, settings.Conf.AppConf.Mode); err != nil {
 		zap.L().Error("logger init failed, error:", zap.Error(err))
 		return
 	}
