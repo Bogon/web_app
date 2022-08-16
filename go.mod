@@ -6,8 +6,6 @@ replace webapp.io/settings => ./settings
 
 replace webapp.io/logger => ./logger
 
-replace webapp.io/dao/mysql => ./dao/mysql
-
 replace webapp.io/dao/redis => ./dao/redis
 
 replace webapp.io/appRoutes => ./appRoutes
@@ -16,9 +14,18 @@ replace webapp.io/controllers/userHanlder => ./controllers/userHandler
 
 replace webapp.io/models => ./models
 
+replace webapp.io/pkg/snowflakeID => ./pkg/snowflakeID
+
+replace webapp.io/logic/user => ./logic/user
+
+replace webapp.io/dao/mysql => ./dao/mysql
+
+replace webapp.io/controllers/validatorHandler => ./controllers/validatorHandler
+
 require (
 	go.uber.org/zap v1.22.0
 	webapp.io/appRoutes v0.0.0-00010101000000-000000000000
+	webapp.io/controllers/validatorHandler v0.0.0-00010101000000-000000000000
 	webapp.io/dao/mysql v0.0.0-00010101000000-000000000000
 	webapp.io/dao/redis v0.0.0-00010101000000-000000000000
 	webapp.io/logger v0.0.0-00010101000000-000000000000
@@ -26,12 +33,13 @@ require (
 )
 
 require (
+	github.com/bwmarrin/snowflake v0.3.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.8.1 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
-	github.com/go-playground/validator/v10 v10.10.0 // indirect
+	github.com/go-playground/validator/v10 v10.11.0 // indirect
 	github.com/go-redis/redis v6.15.9+incompatible // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/goccy/go-json v0.9.7 // indirect
@@ -66,5 +74,7 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	webapp.io/controllers/userHanlder v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/logic/user v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/models v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/pkg/snowflakeID v0.0.0-00010101000000-000000000000 // indirect
 )

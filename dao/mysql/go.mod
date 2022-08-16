@@ -2,12 +2,15 @@ module webapp.io/dao/mysql
 
 go 1.18
 
-replace webapp.io/settings => ./../../settings
+replace webapp.io/settings => ../../settings
+
+replace webapp.io/models => ../../models
 
 require (
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/jmoiron/sqlx v1.3.5
 	github.com/spf13/viper v1.12.0
+	webapp.io/models v0.0.0-00010101000000-000000000000
 	webapp.io/settings v0.0.0-00010101000000-000000000000
 )
 

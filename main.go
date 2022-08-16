@@ -11,9 +11,11 @@ import (
 	"syscall"
 	"time"
 	"webapp.io/appRoutes"
+	"webapp.io/controllers/validatorHandler"
 	"webapp.io/dao/mysql"
 	"webapp.io/dao/redis"
 	"webapp.io/logger"
+	"webapp.io/pkg/snowflakeID"
 	"webapp.io/settings"
 )
 
@@ -57,8 +59,21 @@ func main() {
 	defer redis.Close()
 	zap.L().Debug("redis init success…")
 
+	// 初始化 gin 框架内置的校验器使用的翻译器
+	if err := validatorHandler.InitTrans("zh"); err != nil {
+		zap.L().Error("validator trans init failed, error:", zap.Error(err))
+		return
+	}
+
 	// 5. 注册路由
 	r := appRoutes.Setup()
+
+	// 5.1 初始化分布式ID生成框架
+	if err := snowflakeID.Init("2022-08-16", 1); err != nil {
+		zap.L().Error("snowflakeID init failed, error:", zap.Error(err))
+		return
+	}
+
 	// 6. 启动服务（优雅关机）
 	srv := &http.Server{
 		Addr:    fmt.Sprintf(":%d", settings.Conf.AppConf.Port),

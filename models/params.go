@@ -13,7 +13,7 @@ package models
 // @property {string} Password - The password of the user.
 // @property {string} RePassword - The password that the user enters again to confirm the password.
 type ParamSignUp struct {
-	Username   string `json:"username"`
-	Password   string `json:"password"`
-	RePassword string `json:"re_password"`
+	Username   string `json:"username" binding:"required"`
+	Password   string `json:"password" binding:"required"`
+	RePassword string `json:"re_password" binding:"required,eqfield=Password"`
 }

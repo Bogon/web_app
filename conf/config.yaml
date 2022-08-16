@@ -17,8 +17,8 @@ mysql:
   user: "root"
   password: "123456"
   dbname: "web_app"
-  open_max_conns: 20
-  idel_max_conns: 20
+  open_max_conns: 200
+  idel_max_conns: 50
 
 redis:
   host: "127.0.0.1"
