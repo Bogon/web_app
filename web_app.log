@@ -312,3 +312,28 @@
 {"level":"INFO","time":"2022-08-17T14:05:19.784+0800","caller":"logger/logger.go:81","msg":"/ping","status":200,"method":"GET","path":"/ping","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000162041}
 {"level":"INFO","time":"2022-08-17T14:11:23.838+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2022-08-17T14:11:23.843+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-17T14:13:14.343+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-17T14:13:14.384+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-17T14:13:14.389+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-17T16:12:03.852+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-17T16:12:03.861+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-17T16:49:06.713+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-17T16:49:06.824+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-17T16:49:06.834+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-17T16:49:09.620+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-17T16:49:09.622+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-17T16:52:07.123+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-17T16:52:07.160+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-17T16:52:07.171+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-17T16:52:10.743+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-17T16:52:10.744+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-17T16:52:22.483+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-17T16:52:22.506+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-17T16:52:22.509+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-17T16:52:24.060+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-17T16:52:24.062+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-17T16:53:25.432+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-17T16:53:25.460+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-17T16:53:25.462+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-17T16:53:27.605+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-17T16:53:27.606+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
