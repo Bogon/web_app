@@ -18,3 +18,10 @@
 + signup
 + login
 + ~~ping~~
++ 
+# `Air`
+
+添加提高开发效率工具，完成源码下载之后，运行如下代码安装并运行 `air` ：
+```Bash
+./start_air.sh
+```
