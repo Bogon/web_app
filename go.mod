@@ -26,6 +26,10 @@ replace webapp.io/controllers/responseHandler => ./controllers/responseHandler
 
 replace webapp.io/controllers/responseCode => ./controllers/responseCode
 
+replace webapp.io/pkg/jwt => ./pkg/jwt
+
+replace webapp.io/middlewares/jwtauth => ./middlewares/jwtauth
+
 require (
 	go.uber.org/zap v1.22.0
 	webapp.io/appRoutes v0.0.0-00010101000000-000000000000
@@ -48,6 +52,7 @@ require (
 	github.com/go-redis/redis v6.15.9+incompatible // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/goccy/go-json v0.9.7 // indirect
+	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jmoiron/sqlx v1.3.5 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
@@ -82,5 +87,7 @@ require (
 	webapp.io/controllers/responseHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/userHanlder v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/user v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/middlewares/jwtauth v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/models v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/pkg/jwt v0.0.0-00010101000000-000000000000 // indirect
 )

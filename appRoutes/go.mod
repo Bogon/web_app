@@ -18,11 +18,22 @@ replace webapp.io/dao/mysql => ../dao/mysql
 
 replace webapp.io/pkg/snowflakeID => ../pkg/snowflakeID
 
+replace webapp.io/controllers/responseHandler => ../controllers/responseHandler
+
+replace webapp.io/controllers/responseCode => ../controllers/responseCode
+
+replace webapp.io/pkg/jwt => ../pkg/jwt
+
+replace webapp.io/middlewares/jwtauth => ../middlewares/jwtauth
+
 require (
 	github.com/gin-gonic/gin v1.8.1
 	github.com/spf13/viper v1.12.0
+	webapp.io/controllers/responseCode v0.0.0-00010101000000-000000000000
+	webapp.io/controllers/responseHandler v0.0.0-00010101000000-000000000000
 	webapp.io/controllers/userHanlder v0.0.0-00010101000000-000000000000
 	webapp.io/logger v0.0.0-00010101000000-000000000000
+	webapp.io/middlewares/jwtauth v0.0.0-00010101000000-000000000000
 )
 
 require (
@@ -34,6 +45,7 @@ require (
 	github.com/go-playground/validator/v10 v10.11.0 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/goccy/go-json v0.9.7 // indirect
+	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jmoiron/sqlx v1.3.5 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
@@ -67,6 +79,7 @@ require (
 	webapp.io/dao/mysql v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/user v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/models v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/pkg/jwt v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/pkg/snowflakeID v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/settings v0.0.0-00010101000000-000000000000 // indirect
 )

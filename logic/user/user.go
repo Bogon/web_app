@@ -3,6 +3,7 @@ package user
 import (
 	"webapp.io/dao/mysql"
 	"webapp.io/models"
+	"webapp.io/pkg/jwt"
 	"webapp.io/pkg/snowflakeID"
 )
 
@@ -26,8 +27,14 @@ func SignUp(p *models.ParamSignUp) (err error) {
 }
 
 // Login `Login` takes a `*models.ParamLogin` and returns an `error`
-func Login(p *models.ParamLogin) error {
+func Login(p *models.ParamLogin) (token string, err error) {
 	// 判断用户是否存在
 	u := &models.User{Username: p.Username, Password: p.Password}
-	return mysql.Login(u)
+
+	// 传递的是指针，这样就可以获取到 user.userID
+	if err = mysql.Login(u); err != nil {
+		return
+	}
+	// 生成 JWT
+	return jwt.GenToken(u.UserID, u.Username)
 }

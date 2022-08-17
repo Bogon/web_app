@@ -18,6 +18,8 @@ replace webapp.io/controllers/responseCode => ../responseCode
 
 replace webapp.io/controllers/responseHandler => ../responseHandler
 
+replace webapp.io/pkg/jwt => ../../pkg/jwt
+
 require (
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-playground/validator/v10 v10.11.0
@@ -25,6 +27,7 @@ require (
 	webapp.io/controllers/responseCode v0.0.0-00010101000000-000000000000
 	webapp.io/controllers/responseHandler v0.0.0-00010101000000-000000000000
 	webapp.io/controllers/validatorHandler v0.0.0-00010101000000-000000000000
+	webapp.io/dao/mysql v0.0.0-00010101000000-000000000000
 	webapp.io/logic/user v0.0.0-00010101000000-000000000000
 	webapp.io/models v0.0.0-00010101000000-000000000000
 )
@@ -37,6 +40,7 @@ require (
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/goccy/go-json v0.9.7 // indirect
+	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jmoiron/sqlx v1.3.5 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
@@ -65,7 +69,7 @@ require (
 	gopkg.in/ini.v1 v1.66.4 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	webapp.io/dao/mysql v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/pkg/jwt v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/pkg/snowflakeID v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/settings v0.0.0-00010101000000-000000000000 // indirect
 )

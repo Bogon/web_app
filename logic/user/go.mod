@@ -10,9 +10,12 @@ replace webapp.io/models => ../../models
 
 replace webapp.io/settings => ../../settings
 
+replace webapp.io/pkg/jwt => ../../pkg/jwt
+
 require (
 	webapp.io/dao/mysql v0.0.0-00010101000000-000000000000
 	webapp.io/models v0.0.0-00010101000000-000000000000
+	webapp.io/pkg/jwt v0.0.0-00010101000000-000000000000
 	webapp.io/pkg/snowflakeID v0.0.0-00010101000000-000000000000
 )
 
@@ -20,6 +23,7 @@ require (
 	github.com/bwmarrin/snowflake v0.3.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
+	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jmoiron/sqlx v1.3.5 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
