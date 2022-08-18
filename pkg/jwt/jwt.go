@@ -4,10 +4,11 @@ import (
 	"errors"
 	"github.com/golang-jwt/jwt/v4"
 	"time"
+	"webapp.io/settings"
 )
 
-// TokenExpireDuration JWT的过期时间
-const TokenExpireDuration = time.Hour * 2
+// TokenExpireDuration JWT的过期时间 单位：小时
+const TokenExpireDuration = time.Hour
 
 // MySecret Secret
 var MySecret = []byte("web_app.io")
@@ -29,7 +30,7 @@ func GenToken(userID int64, username string) (string, error) {
 		UserID:   userID, // 自定义字段
 		Username: username,
 		RegisteredClaims: jwt.RegisteredClaims{
-			ExpiresAt: jwt.NewNumericDate(time.Now().Add(TokenExpireDuration * time.Duration(1))),
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(time.Duration(settings.Conf.AuthConf.Expire) * time.Hour)),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
 			NotBefore: jwt.NewNumericDate(time.Now()),
 			Issuer:    "webapp.io",

@@ -26,11 +26,13 @@ replace webapp.io/pkg/jwt => ../pkg/jwt
 
 replace webapp.io/middlewares/jwtauth => ../middlewares/jwtauth
 
+replace webapp.io/controllers/community => ../controllers/community
+
+replace webapp.io/logic/community => ../logic/community
+
 require (
 	github.com/gin-gonic/gin v1.8.1
-	github.com/spf13/viper v1.12.0
-	webapp.io/controllers/responseCode v0.0.0-00010101000000-000000000000
-	webapp.io/controllers/responseHandler v0.0.0-00010101000000-000000000000
+	webapp.io/controllers/community v0.0.0-00010101000000-000000000000
 	webapp.io/controllers/userHanlder v0.0.0-00010101000000-000000000000
 	webapp.io/logger v0.0.0-00010101000000-000000000000
 	webapp.io/middlewares/jwtauth v0.0.0-00010101000000-000000000000
@@ -62,6 +64,7 @@ require (
 	github.com/spf13/cast v1.5.0 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/spf13/viper v1.12.0 // indirect
 	github.com/subosito/gotenv v1.3.0 // indirect
 	github.com/ugorji/go/codec v1.2.7 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
@@ -75,8 +78,11 @@ require (
 	gopkg.in/ini.v1 v1.66.4 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+	webapp.io/controllers/responseCode v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/controllers/responseHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/validatorHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/dao/mysql v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/logic/community v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/user v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/models v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/pkg/jwt v0.0.0-00010101000000-000000000000 // indirect

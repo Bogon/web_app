@@ -15,11 +15,18 @@ var Conf = new(WebAppConfig)
 // @property {MySQLConf}  - AppConf: Application configuration
 // @property {RedisConf}  - AppConf: Application configuration
 type WebAppConfig struct {
+	*AuthConf      `mapstructure:"auth" json:"auth"`
 	*AppConf       `mapstructure:"app" json:"app"`
 	*LogConf       `mapstructure:"log" json:"log"`
 	*MySQLConf     `mapstructure:"mysql" json:"mysql"`
 	*RedisConf     `mapstructure:"redis" json:"redis"`
 	*SnowflakeConf `mapstructure:"snowflake" json:"snowflake"`
+}
+
+// AuthConf `AuthConf` is a struct with a single field `Expire` of type `int`
+// @property {int} Expire - The expiration time of the JWT token.
+type AuthConf struct {
+	Expire int `mapstructure:"jwt_expire" json:"jwtExpire"`
 }
 
 // AppConf It's a struct with three fields, each of which is a string.

@@ -1,11 +1,9 @@
 package appRoutes
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/spf13/viper"
 	"net/http"
-	"webapp.io/controllers/responseHandler"
+	"webapp.io/controllers/community"
 	"webapp.io/controllers/userHanlder"
 	"webapp.io/logger"
 	"webapp.io/middlewares/jwtauth"
@@ -18,21 +16,23 @@ func Setup(mode string) *gin.Engine {
 	r := gin.New()
 	r.Use(logger.GinLogger(), logger.GinRecovery(true))
 
+	v1 := r.Group("api/v1")
+
 	// 注册业务路由 - 注册
-	r.POST("signup", userHanlder.UserSignUpHandler)
+	v1.POST("signup", userHanlder.UserSignUpHandler)
 	// 注册业务路由 - 登录
-	r.POST("login", userHanlder.UserLoginHandler)
+	v1.POST("login", userHanlder.UserLoginHandler)
 
-	r.GET("/", func(c *gin.Context) {
-		appVersion := viper.GetString("app.version")
-		c.String(http.StatusOK, fmt.Sprintf("v%v", appVersion))
-	})
+	v1.Use(jwtauth.JWTAuthMiddleware())
 
-	// 需求：该接口只有在登录情况下才可以调用
-	r.GET("/ping", jwtauth.JWTAuthMiddleware(), func(c *gin.Context) {
-		// 已经登录 正常显示
-		responseHandler.ResponseSuccess(c, gin.H{
-			"tips": "success",
+	{
+		// 获取社区分类
+		v1.GET("community", community.GetCommunityHandler)
+	}
+
+	r.NoRoute(func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"msg": "404",
 		})
 	})
 

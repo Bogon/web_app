@@ -26,9 +26,13 @@ replace webapp.io/controllers/responseHandler => ./controllers/responseHandler
 
 replace webapp.io/controllers/responseCode => ./controllers/responseCode
 
-replace webapp.io/pkg/jwt => ./pkg/jwt
-
 replace webapp.io/middlewares/jwtauth => ./middlewares/jwtauth
+
+replace webapp.io/controllers/community => ./controllers/community
+
+replace webapp.io/logic/community => ./logic/community
+
+replace webapp.io/pkg/jwt => ./pkg/jwt
 
 require (
 	go.uber.org/zap v1.22.0
@@ -43,9 +47,6 @@ require (
 
 require (
 	github.com/bwmarrin/snowflake v0.3.0 // indirect
-	github.com/cosmtrek/air v1.40.4 // indirect
-	github.com/creack/pty v1.1.18 // indirect
-	github.com/fatih/color v1.13.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.8.1 // indirect
@@ -57,12 +58,10 @@ require (
 	github.com/goccy/go-json v0.9.7 // indirect
 	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/imdario/mergo v0.3.13 // indirect
 	github.com/jmoiron/sqlx v1.3.5 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
-	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
@@ -88,9 +87,11 @@ require (
 	gopkg.in/ini.v1 v1.66.4 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+	webapp.io/controllers/community v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/responseCode v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/responseHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/userHanlder v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/logic/community v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/user v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/middlewares/jwtauth v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/models v0.0.0-00010101000000-000000000000 // indirect
