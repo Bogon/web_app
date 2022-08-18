@@ -4,17 +4,10 @@ import (
 	"crypto/md5"
 	"database/sql"
 	"encoding/hex"
-	"errors"
 	"webapp.io/models"
 )
 
 const secret = "webapp.io"
-
-var (
-	ErrorUserExist           = errors.New("用户已存在")
-	ErrorUserNotExist        = errors.New("用户不存在")
-	ErrorUserInvalidPassword = errors.New("密码错误")
-)
 
 // 把每一步数据库操作封装成一个函数
 // 待 logic 层根据业务需求调用

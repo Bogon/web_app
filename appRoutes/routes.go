@@ -28,6 +28,7 @@ func Setup(mode string) *gin.Engine {
 	{
 		// 获取社区分类
 		v1.GET("community", community.GetCommunityHandler)
+		v1.GET("community/:id", community.GetCommunityDetailHandler)
 	}
 
 	r.NoRoute(func(c *gin.Context) {
