@@ -603,3 +603,69 @@
 {"level":"INFO","time":"2022-08-18T23:12:36.141+0800","caller":"logger/logger.go:81","msg":"/api/v1/post","status":200,"method":"POST","path":"/api/v1/post","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.011554583}
 {"level":"INFO","time":"2022-08-18T23:14:41.229+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2022-08-18T23:14:41.231+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-19T11:35:44.863+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T11:35:44.913+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T11:35:44.919+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-19T11:35:49.302+0800","caller":"logger/logger.go:81","msg":"/api/v1/post","status":200,"method":"POST","path":"/api/v1/post","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.058568334}
+{"level":"DEBUG","time":"2022-08-19T16:12:10.640+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:12:10.661+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:12:10.665+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-19T16:13:19.622+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/1141529167007744","status":200,"method":"GET","path":"/api/v1/post/1141529167007744","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000089125}
+{"level":"INFO","time":"2022-08-19T16:13:34.234+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/1141529167007744","status":200,"method":"GET","path":"/api/v1/post/1141529167007744","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0000245}
+{"level":"INFO","time":"2022-08-19T16:13:55.795+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/1141529167007744","status":200,"method":"GET","path":"/api/v1/post/1141529167007744","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000016834}
+{"level":"INFO","time":"2022-08-19T16:14:21.071+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/1141529167007744","status":200,"method":"GET","path":"/api/v1/post/1141529167007744","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000019125}
+{"level":"INFO","time":"2022-08-19T16:16:43.753+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-19T16:16:43.755+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-19T16:17:04.268+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:17:04.290+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:17:04.294+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"ERROR","time":"2022-08-19T16:17:10.853+0800","caller":"post/post.go:55","msg":"post.GetPostDetail(id)","error":"Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'post where post_id = ?' at line 1"}
+{"level":"INFO","time":"2022-08-19T16:17:10.853+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/1141529167007744","status":200,"method":"GET","path":"/api/v1/post/1141529167007744","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.01026175}
+{"level":"INFO","time":"2022-08-19T16:18:20.259+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-19T16:18:20.261+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-19T16:18:28.104+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:18:28.124+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:18:28.128+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"ERROR","time":"2022-08-19T16:18:34.769+0800","caller":"post/post.go:55","msg":"post.GetPostDetail(id)","error":"无效的ID"}
+{"level":"INFO","time":"2022-08-19T16:18:34.769+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/1141529167007744","status":200,"method":"GET","path":"/api/v1/post/1141529167007744","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.021371334}
+{"level":"ERROR","time":"2022-08-19T16:18:57.629+0800","caller":"post/post.go:55","msg":"post.GetPostDetail(id)","error":"无效的ID"}
+{"level":"INFO","time":"2022-08-19T16:18:57.629+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/1142097189015552","status":200,"method":"GET","path":"/api/v1/post/1142097189015552","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.004855875}
+{"level":"INFO","time":"2022-08-19T16:21:40.231+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-19T16:21:40.234+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-19T16:21:40.783+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:21:40.810+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:21:40.814+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-19T16:21:42.137+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-19T16:21:42.138+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-19T16:21:48.552+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:21:48.567+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:21:48.571+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"ERROR","time":"2022-08-19T16:21:53.133+0800","caller":"post/post.go:55","msg":"post.GetPostDetail(id)","error":"expected slice but got struct"}
+{"level":"INFO","time":"2022-08-19T16:21:53.133+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/1142097189015552","status":200,"method":"GET","path":"/api/v1/post/1142097189015552","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.013712208}
+{"level":"INFO","time":"2022-08-19T16:22:44.078+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-19T16:22:44.081+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-19T16:22:48.239+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:22:48.256+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:22:48.259+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"ERROR","time":"2022-08-19T16:22:52.611+0800","caller":"post/post.go:55","msg":"post.GetPostDetail(id)","error":"无效的ID"}
+{"level":"INFO","time":"2022-08-19T16:22:52.611+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/1142097189015552","status":200,"method":"GET","path":"/api/v1/post/1142097189015552","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.012414583}
+{"level":"INFO","time":"2022-08-19T16:23:12.058+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/872240019148800","status":200,"method":"GET","path":"/api/v1/post/872240019148800","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.013154375}
+{"level":"INFO","time":"2022-08-19T16:23:20.150+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-19T16:23:20.153+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-19T16:23:20.893+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:23:20.907+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:23:20.919+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-19T16:23:21.720+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-19T16:23:21.722+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-19T16:23:22.712+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:23:22.727+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:23:22.731+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-19T16:23:23.410+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-19T16:23:23.412+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-19T16:23:26.893+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:23:26.907+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:23:26.912+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-19T16:23:30.566+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/872240019148800","status":200,"method":"GET","path":"/api/v1/post/872240019148800","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.012848708}
+{"level":"INFO","time":"2022-08-19T16:23:48.124+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/953922491518976","status":200,"method":"GET","path":"/api/v1/post/953922491518976","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.00492425}
+{"level":"INFO","time":"2022-08-19T16:29:28.698+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-19T16:29:28.701+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}

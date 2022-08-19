@@ -33,6 +33,9 @@ func Setup(mode string) *gin.Engine {
 
 		// 发布帖子
 		v1.POST("post", post.CreatePostHandler)
+		// 获取帖子详情
+		v1.GET("post/:id", post.GetPostDetailHandler)
+
 	}
 
 	r.NoRoute(func(c *gin.Context) {

@@ -19,3 +19,9 @@ func CreatePost(p *models.Post) (err error) {
 	// 3. 返回
 	return
 }
+
+// GetPostDetailById `GetPostDetail` returns a `*models.Post` and an `error` for a given `int64`
+func GetPostDetailById(id int64) (data *models.Post, err error) {
+	// 1. 获取数据返回
+	return daoPost.GetPostById(id)
+}
