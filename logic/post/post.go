@@ -61,6 +61,44 @@ func GetPostDetailById(id int64) (data *models.ApiPostDetail, err error) {
 }
 
 // GetPostList > GetPostList returns a list of posts and an error
-func GetPostList() (data []*models.Post, err error) {
-	return daoPost.GetPostList()
+func GetPostList() (data []*models.ApiPostDetail, err error) {
+	list, err := daoPost.GetPostList()
+	if err != nil {
+		zap.L().Error("daoPost.GetPostList() failed", zap.Error(err))
+		return
+	}
+
+	data = make([]*models.ApiPostDetail, 0, len(list))
+
+	for _, post := range list {
+		// 1. 根据ID查询作者信息
+		user, err := daoPost.GetUserById(post.AuthorID)
+		if err != nil {
+			zap.L().Error(
+				"daoPost.GetUserById(post.AuthorID) failed",
+				zap.Int64("authorID", post.AuthorID),
+				zap.Error(err))
+			continue
+		}
+
+		// 2. 根据 community_id 获取 社区信息
+		communityDetail, err := daoPost.GetCommunityDetail(post.CommunityID)
+		if err != nil {
+			zap.L().Error(
+				"daoPost.GetCommunityDetail(post.CommunityID) failed",
+				zap.Int64("communityID", post.CommunityID),
+				zap.Error(err))
+			continue
+		}
+
+		// 3. 组装数据返回
+		postDetail := &models.ApiPostDetail{
+			AuthorName:      user.Username,
+			Post:            post,
+			CommunityDetail: communityDetail,
+		}
+
+		data = append(data, postDetail)
+	}
+	return
 }
