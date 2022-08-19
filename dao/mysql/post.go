@@ -2,6 +2,7 @@ package mysql
 
 import (
 	"database/sql"
+	"go.uber.org/zap"
 	"webapp.io/models"
 )
 
@@ -26,4 +27,16 @@ func GetPostById(id int64) (detail *models.Post, err error) {
 		}
 	}
 	return detail, err
+}
+
+// GetPostList > GetPostList returns a list of posts and an error
+func GetPostList() (data []*models.Post, err error) {
+	sqlStr := `select id, post_id, author_id, community_id, status, title, content, create_time, update_time from post;`
+	if err = db.Select(&data, sqlStr); err != nil {
+		if err != sql.ErrNoRows {
+			zap.L().Warn("there is no post in db")
+			err = nil
+		}
+	}
+	return
 }

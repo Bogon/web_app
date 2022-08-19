@@ -60,3 +60,15 @@ func GetPostDetailHandler(c *gin.Context) {
 	responseHandler.ResponseSuccess(c, data)
 
 }
+
+// GetPostListHandler gets a list of posts.
+func GetPostListHandler(c *gin.Context) {
+	// 获取列表信息
+	data, err := post.GetPostList()
+	if err != nil {
+		zap.L().Error("post.GetPostList() failed", zap.Error(err))
+		return
+	}
+	// 返回数据
+	responseHandler.ResponseSuccess(c, data)
+}

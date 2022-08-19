@@ -25,27 +25,42 @@ func GetPostDetailById(id int64) (data *models.ApiPostDetail, err error) {
 	// 查询并组合接口需要的数据
 	post, err := daoPost.GetPostById(id)
 	if err != nil {
-		zap.L().Error("daoPost.GetPostById(id) failed", zap.Int64("post_id", id), zap.Error(err))
+		zap.L().Error(
+			"daoPost.GetPostById(id) failed",
+			zap.Int64("post_id", id),
+			zap.Error(err))
 		return
 	}
 	// 2. 根据ID查询作者信息
 	user, err := daoPost.GetUserById(post.AuthorID)
 	if err != nil {
-		zap.L().Error("daoPost.GetUserById(post.AuthorID) failed", zap.Error(err))
+		zap.L().Error(
+			"daoPost.GetUserById(post.AuthorID) failed",
+			zap.Int64("authorID", post.AuthorID),
+			zap.Error(err))
 		return
 	}
 
 	// 3. 根据 community_id 获取 社区信息
 	communityDetail, err := daoPost.GetCommunityDetail(post.CommunityID)
 	if err != nil {
-		zap.L().Error("daoPost.GetCommunityDetail(post.CommunityID) failed", zap.Error(err))
+		zap.L().Error(
+			"daoPost.GetCommunityDetail(post.CommunityID) failed",
+			zap.Int64("communityID", post.CommunityID),
+			zap.Error(err))
 		return
 	}
 
 	// 4. 组装数据返回
-	data = new(models.ApiPostDetail)
-	data.AuthorName = user.Username
-	data.Post = post
-	data.CommunityDetail = communityDetail
+	data = &models.ApiPostDetail{
+		AuthorName:      user.Username,
+		Post:            post,
+		CommunityDetail: communityDetail,
+	}
 	return
+}
+
+// GetPostList > GetPostList returns a list of posts and an error
+func GetPostList() (data []*models.Post, err error) {
+	return daoPost.GetPostList()
 }

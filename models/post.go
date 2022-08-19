@@ -40,7 +40,7 @@ type Post struct {
 // @property {Post}  - AuthorName: The name of the author of the post.
 // @property {Community}  - AuthorName: The name of the author of the post.
 type ApiPostDetail struct {
-	AuthorName       string `json:"authorName"`
-	*Post                   // 嵌入帖子结构体
-	*CommunityDetail        // 嵌入社区信息
+	AuthorName       string             `json:"authorName"`
+	*Post                               // 嵌入帖子结构体
+	*CommunityDetail `json:"community"` // 嵌入社区信息
 }
