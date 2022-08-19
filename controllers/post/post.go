@@ -50,7 +50,7 @@ func GetPostDetailHandler(c *gin.Context) {
 		return
 	}
 	// 2. 根据id 查询post 信息
-	data, err := post.GetPostDetail(id)
+	data, err := post.GetPostDetailById(id)
 	if err != nil {
 		zap.L().Error("post.GetPostDetail(id) failed", zap.Error(err))
 		responseHandler.ResponseError(c, responseCode.CodeInvalidParam)
