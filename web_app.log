@@ -669,3 +669,20 @@
 {"level":"INFO","time":"2022-08-19T16:23:48.124+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/953922491518976","status":200,"method":"GET","path":"/api/v1/post/953922491518976","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.00492425}
 {"level":"INFO","time":"2022-08-19T16:29:28.698+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2022-08-19T16:29:28.701+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-19T16:54:12.715+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:54:12.740+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:54:12.743+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-19T16:54:17.544+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/953922491518976","status":200,"method":"GET","path":"/api/v1/post/953922491518976","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.040553083}
+{"level":"INFO","time":"2022-08-19T16:55:11.377+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-19T16:55:11.380+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-19T16:55:12.208+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:55:12.226+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:55:12.234+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-19T16:55:13.349+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-19T16:55:13.351+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-19T16:55:18.198+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:55:18.216+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-19T16:55:18.220+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"INFO","time":"2022-08-19T16:55:21.279+0800","caller":"logger/logger.go:81","msg":"/api/v1/post/953922491518976","status":200,"method":"GET","path":"/api/v1/post/953922491518976","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.020943875}
+{"level":"INFO","time":"2022-08-19T17:03:59.337+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-08-19T17:03:59.340+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}

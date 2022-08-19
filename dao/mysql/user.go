@@ -62,3 +62,15 @@ func Login(p *models.User) (err error) {
 		return ErrorUserInvalidPassword
 	}
 }
+
+// GetUserById > GetUserById returns a user by id
+func GetUserById(id int64) (user *models.User, err error) {
+	user = new(models.User)
+	sqlStr := `select user_id, username from user where user_id = ?;`
+	if err = db.Get(user, sqlStr, id); err != nil {
+		if err == sql.ErrNoRows {
+			return
+		}
+	}
+	return
+}

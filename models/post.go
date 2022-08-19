@@ -32,3 +32,15 @@ type Post struct {
 	CreateTime  time.Time `db:"create_time" json:"createTime"`
 	UpdateTime  time.Time `db:"update_time" json:"updateTime"`
 }
+
+// ApiPostDetail 帖子详情结构体
+// `ApiPostDetail` is a struct with fields `AuthorName` of type `string`, `Post` of type `*Post`, and `Community` of type
+// `*Community`.
+// @property {string} AuthorName - The name of the author of the post.
+// @property {Post}  - AuthorName: The name of the author of the post.
+// @property {Community}  - AuthorName: The name of the author of the post.
+type ApiPostDetail struct {
+	AuthorName       string `json:"authorName"`
+	*Post                   // 嵌入帖子结构体
+	*CommunityDetail        // 嵌入社区信息
+}
