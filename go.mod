@@ -34,6 +34,12 @@ replace webapp.io/logic/community => ./logic/community
 
 replace webapp.io/pkg/jwt => ./pkg/jwt
 
+replace webapp.io/controllers/post => ./controllers/post
+
+replace webapp.io/controllers/requestHandler => ./controllers/requestHandler
+
+replace webapp.io/logic/post => ./logic/post
+
 require (
 	go.uber.org/zap v1.22.0
 	webapp.io/appRoutes v0.0.0-00010101000000-000000000000
@@ -88,10 +94,13 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	webapp.io/controllers/community v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/controllers/post v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/controllers/requestHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/responseCode v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/responseHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/userHanlder v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/community v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/logic/post v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/user v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/middlewares/jwtauth v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/models v0.0.0-00010101000000-000000000000 // indirect

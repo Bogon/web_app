@@ -30,9 +30,16 @@ replace webapp.io/controllers/community => ../controllers/community
 
 replace webapp.io/logic/community => ../logic/community
 
+replace webapp.io/controllers/post => ../controllers/post
+
+replace webapp.io/controllers/requestHandler => ../controllers/requestHandler
+
+replace webapp.io/logic/post => ../logic/post
+
 require (
 	github.com/gin-gonic/gin v1.8.1
 	webapp.io/controllers/community v0.0.0-00010101000000-000000000000
+	webapp.io/controllers/post v0.0.0-00010101000000-000000000000
 	webapp.io/controllers/userHanlder v0.0.0-00010101000000-000000000000
 	webapp.io/logger v0.0.0-00010101000000-000000000000
 	webapp.io/middlewares/jwtauth v0.0.0-00010101000000-000000000000
@@ -78,11 +85,13 @@ require (
 	gopkg.in/ini.v1 v1.66.4 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+	webapp.io/controllers/requestHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/responseCode v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/responseHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/validatorHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/dao/mysql v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/community v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/logic/post v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/user v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/models v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/pkg/jwt v0.0.0-00010101000000-000000000000 // indirect

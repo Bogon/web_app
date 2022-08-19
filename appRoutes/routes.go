@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"webapp.io/controllers/community"
+	"webapp.io/controllers/post"
 	"webapp.io/controllers/userHanlder"
 	"webapp.io/logger"
 	"webapp.io/middlewares/jwtauth"
@@ -29,6 +30,9 @@ func Setup(mode string) *gin.Engine {
 		// 获取社区分类
 		v1.GET("community", community.GetCommunityHandler)
 		v1.GET("community/:id", community.GetCommunityDetailHandler)
+
+		// 发布帖子
+		v1.POST("post", post.CreatePostHandler)
 	}
 
 	r.NoRoute(func(c *gin.Context) {
