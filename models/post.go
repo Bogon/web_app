@@ -22,10 +22,10 @@ import "time"
 // @property CreateTime - The time when the post was created.
 // @property UpdateTime - The time when the post was last updated.
 type Post struct {
-	ID          int64     `db:"id" json:"id"`
-	PostID      int64     `db:"post_id" json:"postID"`
-	AuthorID    int64     `db:"author_id" json:"authorID" binding:"required"`
-	CommunityID int64     `db:"community_id" json:"communityID" binding:"required"`
+	ID          int64     `db:"id" json:"id,string"`
+	PostID      int64     `db:"post_id" json:"postID,string"`
+	AuthorID    int64     `db:"author_id" json:"authorID,string" binding:"required"`
+	CommunityID int64     `db:"community_id" json:"communityID,string" binding:"required"`
 	Status      int32     `db:"status" json:"status"`
 	Title       string    `db:"title" json:"title" binding:"required"`
 	Content     string    `db:"content" json:"content" binding:"required"`

@@ -6,7 +6,7 @@ import "time"
 // @property {int} ID - The ID of the community.
 // @property {string} Name - The name of the property.
 type Community struct {
-	ID   int    `db:"community_id"`
+	ID   int64  `db:"community_id"`
 	Name string `db:"community_name"`
 }
 
@@ -25,7 +25,7 @@ type Community struct {
 // @property CreateTime - The time when the community was created.
 // @property UpdateTime - The time when the community was last updated.
 type CommunityDetail struct {
-	ID           int       `db:"community_id" json:"id"`
+	ID           int64     `db:"community_id" json:"id,string"`
 	Name         string    `db:"community_name" json:"name"`
 	Introduction string    `db:"introduction" json:"introduction,omitempty"`
 	CreateTime   time.Time `db:"create_time" json:"createTime"`

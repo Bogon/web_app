@@ -27,14 +27,19 @@ func SignUp(p *models.ParamSignUp) (err error) {
 }
 
 // Login `Login` takes a `*models.ParamLogin` and returns an `error`
-func Login(p *models.ParamLogin) (token string, err error) {
+func Login(p *models.ParamLogin) (user *models.User, err error) {
 	// 判断用户是否存在
-	u := &models.User{Username: p.Username, Password: p.Password}
+	user = &models.User{Username: p.Username, Password: p.Password}
 
 	// 传递的是指针，这样就可以获取到 user.userID
-	if err = mysql.Login(u); err != nil {
+	if err = mysql.Login(user); err != nil {
 		return
 	}
 	// 生成 JWT
-	return jwt.GenToken(u.UserID, u.Username)
+	token, err := jwt.GenToken(user.UserID, user.Username)
+	if err != nil {
+		return nil, err
+	}
+	user.Token = token
+	return
 }

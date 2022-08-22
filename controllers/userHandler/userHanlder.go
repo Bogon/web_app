@@ -2,6 +2,7 @@ package userHanlder
 
 import (
 	"errors"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 	"go.uber.org/zap"
@@ -64,7 +65,7 @@ func UserLoginHandler(c *gin.Context) {
 		return
 	}
 	// 2. 业务逻辑处理
-	token, err := user.Login(u)
+	user, err := user.Login(u)
 	if err != nil {
 		zap.L().Error("user.Login failed", zap.String("username", u.Username), zap.Error(err))
 		if errors.Is(err, mysql.ErrorUserExist) {
@@ -75,5 +76,9 @@ func UserLoginHandler(c *gin.Context) {
 		return
 	}
 	// 3. 返回响应
-	responseHandler.ResponseSuccess(c, token)
+	responseHandler.ResponseSuccess(c, gin.H{
+		"userID":   fmt.Sprintf("%v", user.UserID),
+		"userName": user.Username,
+		"token":    user.Token,
+	})
 }
