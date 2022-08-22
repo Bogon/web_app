@@ -1,7 +1,7 @@
 app:
   name: "web_app"
   mode: "dev"
-  port: 8001
+  port: 8000
   version: "1.1.5"
 
 auth:
