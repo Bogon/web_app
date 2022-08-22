@@ -60,9 +60,9 @@ func GetPostDetailById(id int64) (data *models.ApiPostDetail, err error) {
 	return
 }
 
-// GetPostList > GetPostList returns a list of posts and an error
-func GetPostList() (data []*models.ApiPostDetail, err error) {
-	list, err := daoPost.GetPostList()
+// GetPostList > GetPostList() returns a list of post details, including the author's name, the post's content, and the community's
+func GetPostList(page, size int64) (data []*models.ApiPostDetail, err error) {
+	list, err := daoPost.GetPostList(page, size)
 	if err != nil {
 		zap.L().Error("daoPost.GetPostList() failed", zap.Error(err))
 		return

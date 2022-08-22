@@ -63,8 +63,28 @@ func GetPostDetailHandler(c *gin.Context) {
 
 // GetPostListHandler gets a list of posts.
 func GetPostListHandler(c *gin.Context) {
+	// 获取分页参数
+	pageStr := c.Query("page") // 分页
+	sizeStr := c.Query("size") // 页面个数
+
+	var (
+		page int64
+		size int64
+		err  error
+	)
+
+	page, err = strconv.ParseInt(pageStr, 10, 64)
+	if err != nil {
+		page = 0
+	}
+
+	size, err = strconv.ParseInt(sizeStr, 10, 64)
+	if err != nil {
+		size = 20
+	}
+
 	// 获取列表信息
-	data, err := post.GetPostList()
+	data, err := post.GetPostList(page, size)
 	if err != nil {
 		zap.L().Error("post.GetPostList() failed", zap.Error(err))
 		return
