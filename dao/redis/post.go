@@ -9,7 +9,7 @@ import (
 
 func getIdsFromKey(key string, page, size int64) ([]string, error) {
 	// 2. 确定要查询索引起始点
-	start := (page - 1) * p.Size
+	start := (page - 1) * size
 	end := start + size - 1
 	// 3. 使用 ZRevRange 查询数据
 	return rdb.ZRevRange(key, start, end).Result()
