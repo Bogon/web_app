@@ -40,6 +40,10 @@ replace webapp.io/controllers/requestHandler => ./controllers/requestHandler
 
 replace webapp.io/logic/post => ./logic/post
 
+replace webapp.io/logic/voted => ./logic/voted
+
+replace webapp.io/controllers/vote => ./controllers/vote
+
 require (
 	go.uber.org/zap v1.22.0
 	webapp.io/appRoutes v0.0.0-00010101000000-000000000000
@@ -73,7 +77,6 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/natefinch/lumberjack v2.0.0+incompatible // indirect
-	github.com/nxadm/tail v1.4.8 // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.1 // indirect
 	github.com/spf13/afero v1.8.2 // indirect
@@ -99,9 +102,11 @@ require (
 	webapp.io/controllers/responseCode v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/responseHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/userHanlder v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/controllers/vote v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/community v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/post v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/user v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/logic/voted v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/middlewares/jwtauth v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/models v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/pkg/jwt v0.0.0-00010101000000-000000000000 // indirect

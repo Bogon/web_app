@@ -2,6 +2,8 @@ package mysql
 
 import (
 	"database/sql"
+	"github.com/jmoiron/sqlx"
+	"strings"
 	"webapp.io/models"
 )
 
@@ -33,9 +35,28 @@ func GetPostList(page, size int64) (data []*models.Post, err error) {
 	sqlStr := `select 
     id, post_id, author_id, community_id, status, title, content, create_time, update_time 
 	from post
+	Order By create_time
+	DESC 
 	limit ?,?
 	`
 	data = make([]*models.Post, 0, 2)
 	err = db.Select(&data, sqlStr, (page-1)*size, size)
+	return
+}
+
+func GetPostListSort(ids []string) (data []*models.Post, err error) {
+	sqlStr := `select 
+    id, post_id, author_id, community_id, status, title, content, create_time, update_time 
+	from post
+	where post_id in (?)
+	Order By FIND_IN_SET(post_id, ?)
+	`
+	data = make([]*models.Post, 0, 2)
+	query, args, err := sqlx.In(sqlStr, ids, strings.Join(ids, ","))
+	if err != nil {
+		return nil, err
+	}
+	query = db.Rebind(query)
+	err = db.Select(&data, sqlStr, args...)
 	return
 }

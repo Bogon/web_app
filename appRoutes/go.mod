@@ -36,11 +36,18 @@ replace webapp.io/controllers/requestHandler => ../controllers/requestHandler
 
 replace webapp.io/logic/post => ../logic/post
 
+replace webapp.io/controllers/vote => ../controllers/vote
+
+replace webapp.io/logic/voted => ../logic/voted
+
+replace webapp.io/dao/redis => ../dao/redis
+
 require (
 	github.com/gin-gonic/gin v1.8.1
 	webapp.io/controllers/community v0.0.0-00010101000000-000000000000
 	webapp.io/controllers/post v0.0.0-00010101000000-000000000000
 	webapp.io/controllers/userHanlder v0.0.0-00010101000000-000000000000
+	webapp.io/controllers/vote v0.0.0-00010101000000-000000000000
 	webapp.io/logger v0.0.0-00010101000000-000000000000
 	webapp.io/middlewares/jwtauth v0.0.0-00010101000000-000000000000
 )
@@ -52,6 +59,7 @@ require (
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-playground/validator/v10 v10.11.0 // indirect
+	github.com/go-redis/redis v6.15.9+incompatible // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/goccy/go-json v0.9.7 // indirect
 	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
@@ -90,9 +98,11 @@ require (
 	webapp.io/controllers/responseHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/controllers/validatorHandler v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/dao/mysql v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/dao/redis v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/community v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/post v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/user v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/logic/voted v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/models v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/pkg/jwt v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/pkg/snowflakeID v0.0.0-00010101000000-000000000000 // indirect

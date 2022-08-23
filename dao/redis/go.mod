@@ -4,9 +4,11 @@ go 1.18
 
 replace webapp.io/settings => ./../../settings
 
+replace webapp.io/models => ../../models
+
 require (
 	github.com/go-redis/redis v6.15.9+incompatible
-	github.com/spf13/viper v1.12.0
+	webapp.io/models v0.0.0-00010101000000-000000000000
 	webapp.io/settings v0.0.0-00010101000000-000000000000
 )
 
@@ -23,6 +25,7 @@ require (
 	github.com/spf13/cast v1.5.0 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/spf13/viper v1.12.0 // indirect
 	github.com/subosito/gotenv v1.3.0 // indirect
 	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a // indirect
 	golang.org/x/text v0.3.7 // indirect

@@ -85,3 +85,35 @@ func GetPostListHandler(c *gin.Context) {
 	// 返回数据
 	responseHandler.ResponseSuccess(c, data)
 }
+
+// GetPostListSortedHandler gets a list of posts.
+// 修改帖子列表接口，根据的用户传递过来的参数动态获取参数列表
+// 按照 创建时间排序 或者 按照分数排序
+// 1. 获取参数
+// 2. redis 查询时间id 列表
+// 3. 根据id到帖子数据库获取帖子详情信息
+func GetPostListSortedHandler(c *gin.Context) {
+
+	p := models.ParamPostList{
+		Page:  1,
+		Size:  10,
+		Order: models.OrderTime,
+	}
+	// 获取分页数据
+	err := c.ShouldBindQuery(&p)
+	if err != nil {
+		responseHandler.ResponseError(c, responseCode.CodeInvalidParam)
+		return
+	}
+	// c.ShouldBindJSON() // 当请求中携带的参数是json时，使用该方法绑定参数
+
+	// 获取列表信息
+	data, err := post.GetPostListSort(&p)
+	if err != nil {
+		zap.L().Error("post.GetPostListSort() failed", zap.Error(err))
+		responseHandler.ResponseError(c, responseCode.CodeServerBasy)
+		return
+	}
+	// 返回数据
+	responseHandler.ResponseSuccess(c, data)
+}

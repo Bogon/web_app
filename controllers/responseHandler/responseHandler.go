@@ -28,7 +28,7 @@ import (
 type ResponseData struct {
 	Code responseCode.ResCode `json:"code"`
 	Msg  interface{}          `json:"msg"`
-	Data interface{}          `json:"data"`
+	Data interface{}          `json:"data,omitempty"` // omitempty 忽略空值/即不显示空值
 }
 
 // ResponseError It returns an error response to the client.

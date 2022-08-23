@@ -22,6 +22,8 @@ replace webapp.io/middlewares/jwtauth => ../../middlewares/jwtauth
 
 replace webapp.io/pkg/jwt => ../../pkg/jwt
 
+replace webapp.io/dao/redis => ../../dao/redis
+
 require (
 	github.com/gin-gonic/gin v1.8.1
 	go.uber.org/zap v1.22.0
@@ -39,6 +41,7 @@ require (
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-playground/validator/v10 v10.10.0 // indirect
+	github.com/go-redis/redis v6.15.9+incompatible // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/goccy/go-json v0.9.7 // indirect
 	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
@@ -68,9 +71,11 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/ini.v1 v1.66.4 // indirect
+	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	webapp.io/dao/mysql v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/dao/redis v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/middlewares/jwtauth v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/pkg/jwt v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/pkg/snowflakeID v0.0.0-00010101000000-000000000000 // indirect

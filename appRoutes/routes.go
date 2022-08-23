@@ -6,6 +6,7 @@ import (
 	"webapp.io/controllers/community"
 	"webapp.io/controllers/post"
 	"webapp.io/controllers/userHanlder"
+	"webapp.io/controllers/vote"
 	"webapp.io/logger"
 	"webapp.io/middlewares/jwtauth"
 )
@@ -33,10 +34,13 @@ func Setup(mode string) *gin.Engine {
 
 		// 发布帖子
 		v1.POST("post", post.CreatePostHandler)
-		// 获取帖子详情
 		v1.GET("post/:id", post.GetPostDetailHandler)
-		// 获取帖子列表
-		v1.GET("/post/", post.GetPostListHandler)
+		v1.GET("/posts", post.GetPostListHandler)
+		// 根据时间/分数获取帖子列表
+		v1.GET("/postssorted", post.GetPostListSortedHandler)
+
+		// 投票
+		v1.POST("vote", vote.PostVoteHandler)
 	}
 
 	r.NoRoute(func(c *gin.Context) {
