@@ -94,13 +94,13 @@ func GetPostListHandler(c *gin.Context) {
 // 3. 根据id到帖子数据库获取帖子详情信息
 func GetPostListSortedHandler(c *gin.Context) {
 
-	p := models.ParamPostList{
+	p := &models.ParamPostList{
 		Page:  1,
 		Size:  10,
 		Order: models.OrderTime,
 	}
 	// 获取分页数据
-	err := c.ShouldBindQuery(&p)
+	err := c.ShouldBindQuery(p)
 	if err != nil {
 		responseHandler.ResponseError(c, responseCode.CodeInvalidParam)
 		return
