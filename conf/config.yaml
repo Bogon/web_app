@@ -22,7 +22,7 @@ mysql:
   password: "123456"
   dbname: "web_app"
   open_max_conns: 200
-  idel_max_conns: 50
+  idel_max_conns: 500
 
 redis:
   host: "127.0.0.1"

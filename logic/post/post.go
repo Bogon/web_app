@@ -124,16 +124,19 @@ func GetPostListSort(p *models.ParamPostList) (data []*models.ApiPostDetail, err
 		return
 	}
 	// 3. 根据id到帖子MySQL数据库获取帖子详情信息
-
 	list, err := daoPost.GetPostListSort(ids)
 	if err != nil {
 		zap.L().Error("daoPost.GetPostList() failed", zap.Error(err))
 		return
 	}
+	// 可以提前查询好每篇帖子的投票数
+	voteData, err := redis.GetPostVoteData(ids)
+	if err != nil {
+		return
+	}
 
 	data = make([]*models.ApiPostDetail, 0, len(ids))
-
-	for _, post := range list {
+	for idx, post := range list {
 		// 1. 根据ID查询作者信息
 		user, err := daoPost.GetUserById(post.AuthorID)
 		if err != nil {
@@ -157,6 +160,7 @@ func GetPostListSort(p *models.ParamPostList) (data []*models.ApiPostDetail, err
 		// 3. 组装数据返回
 		postDetail := &models.ApiPostDetail{
 			AuthorName:      user.Username,
+			VoteNum:         voteData[idx],
 			Post:            post,
 			CommunityDetail: communityDetail,
 		}
