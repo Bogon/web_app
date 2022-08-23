@@ -930,3 +930,6 @@
 {"level":"DEBUG","time":"2022-08-23T11:44:13.483+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
 {"level":"DEBUG","time":"2022-08-23T11:44:13.486+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
 {"level":"FATAL","time":"2022-08-23T11:44:13.487+0800","caller":"webapp.io/main.go:86","msg":"listen: %s\n","error":"listen tcp :8000: bind: address already in use"}
+{"level":"DEBUG","time":"2022-08-23T11:46:28.128+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-23T11:46:28.146+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-23T11:46:28.149+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}

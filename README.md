@@ -25,3 +25,16 @@
 ```Bash
 ./start_air.sh
 ```
+
+## 已完成接口
+```API
+POST   /api/v1/signup            --> webapp.io/controllers/userHanlder.UserSignUpHandler (3 handlers)
+POST   /api/v1/login             --> webapp.io/controllers/userHanlder.UserLoginHandler (3 handlers)
+GET    /api/v1/community         --> webapp.io/controllers/community.GetCommunityHandler (4 handlers)
+GET    /api/v1/community/:id     --> webapp.io/controllers/community.GetCommunityDetailHandler (4 handlers)
+POST   /api/v1/post              --> webapp.io/controllers/post.CreatePostHandler (4 handlers)
+GET    /api/v1/post/:id          --> webapp.io/controllers/post.GetPostDetailHandler (4 handlers)
+GET    /api/v1/posts             --> webapp.io/controllers/post.GetPostListHandler (4 handlers)
+GET    /api/v1/postssorted       --> webapp.io/controllers/post.GetPostListSortedHandler (4 handlers)
+POST   /api/v1/vote              --> webapp.io/controllers/vote.PostVoteHandler (4 handlers)
+```
