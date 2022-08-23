@@ -951,3 +951,7 @@
 {"level":"INFO","time":"2022-08-23T15:45:19.369+0800","caller":"logger/logger.go:81","msg":"/api/v1/postssorted","status":200,"method":"GET","path":"/api/v1/postssorted","query":"page=1&size=2&order=time","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.01584225}
 {"level":"INFO","time":"2022-08-23T15:49:49.179+0800","caller":"webapp.io/main.go:98","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2022-08-23T15:49:49.181+0800","caller":"webapp.io/main.go:107","msg":"Server exiting"}
+{"level":"DEBUG","time":"2022-08-23T15:52:04.218+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-23T15:52:04.237+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-23T15:52:04.242+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"FATAL","time":"2022-08-23T15:52:04.245+0800","caller":"webapp.io/main.go:86","msg":"listen: %s\n","error":"listen tcp :8000: bind: address already in use"}
