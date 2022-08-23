@@ -955,3 +955,7 @@
 {"level":"DEBUG","time":"2022-08-23T15:52:04.237+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
 {"level":"DEBUG","time":"2022-08-23T15:52:04.242+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
 {"level":"FATAL","time":"2022-08-23T15:52:04.245+0800","caller":"webapp.io/main.go:86","msg":"listen: %s\n","error":"listen tcp :8000: bind: address already in use"}
+{"level":"DEBUG","time":"2022-08-23T17:06:21.221+0800","caller":"webapp.io/main.go:44","msg":"logger init success…"}
+{"level":"DEBUG","time":"2022-08-23T17:06:21.249+0800","caller":"webapp.io/main.go:52","msg":"mysql init success…"}
+{"level":"DEBUG","time":"2022-08-23T17:06:21.253+0800","caller":"webapp.io/main.go:60","msg":"redis init success…"}
+{"level":"FATAL","time":"2022-08-23T17:06:21.255+0800","caller":"webapp.io/main.go:86","msg":"listen: %s\n","error":"listen tcp :8000: bind: address already in use"}

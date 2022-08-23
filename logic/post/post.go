@@ -18,7 +18,7 @@ func CreatePost(p *models.Post) (err error) {
 		return
 	}
 
-	if err = redis.CreatePost(p.PostID); err != nil {
+	if err = redis.CreatePost(p.PostID, p.CommunityID); err != nil {
 		return
 	}
 	// 3. 返回
@@ -166,6 +166,82 @@ func GetPostListSort(p *models.ParamPostList) (data []*models.ApiPostDetail, err
 		}
 
 		data = append(data, postDetail)
+	}
+	return
+}
+
+// GetCommunityPostList 根据 communityID 获取帖子列表
+// GetCommunityPostList() returns a list of posts in a community
+func GetCommunityPostList(p *models.ParamPostList) (data []*models.ApiPostDetail, err error) {
+	// 2. redis 查询时间id 列表
+	ids, err := redis.GetCommunityPostIDsInOrder(p)
+	if err != nil {
+		return
+	}
+
+	if len(ids) == 0 {
+		zap.L().Warn("redis.GetPostIDsInOrder(p) return 0")
+		return
+	}
+	// 3. 根据id到帖子MySQL数据库获取帖子详情信息
+	list, err := daoPost.GetPostListSort(ids)
+	if err != nil {
+		zap.L().Error("daoPost.GetPostList() failed", zap.Error(err))
+		return
+	}
+	// 可以提前查询好每篇帖子的投票数
+	voteData, err := redis.GetPostVoteData(ids)
+	if err != nil {
+		return
+	}
+
+	data = make([]*models.ApiPostDetail, 0, len(ids))
+	for idx, post := range list {
+		// 1. 根据ID查询作者信息
+		user, err := daoPost.GetUserById(post.AuthorID)
+		if err != nil {
+			zap.L().Error(
+				"daoPost.GetUserById(post.AuthorID) failed",
+				zap.Int64("authorID", post.AuthorID),
+				zap.Error(err))
+			continue
+		}
+
+		// 2. 根据 community_id 获取 社区信息
+		communityDetail, err := daoPost.GetCommunityDetail(post.CommunityID)
+		if err != nil {
+			zap.L().Error(
+				"daoPost.GetCommunityDetail(post.CommunityID) failed",
+				zap.Int64("communityID", post.CommunityID),
+				zap.Error(err))
+			continue
+		}
+
+		// 3. 组装数据返回
+		postDetail := &models.ApiPostDetail{
+			AuthorName:      user.Username,
+			VoteNum:         voteData[idx],
+			Post:            post,
+			CommunityDetail: communityDetail,
+		}
+
+		data = append(data, postDetail)
+	}
+	return
+}
+
+// GetPostListNew is a function that returns a slice of pointers to models.ApiPostDetail and an error
+// 将两个接口合二为一的接口
+func GetPostListNew(p *models.ParamPostList) (data []*models.ApiPostDetail, err error) {
+	if p.CommunityID == 0 {
+		data, err = GetPostListSort(p)
+	} else {
+		// 根据社区ID查询
+		data, err = GetCommunityPostList(p)
+	}
+	if err != nil {
+		zap.L().Error("GetPostListNew failed", zap.Error(err))
+		return nil, err
 	}
 	return
 }

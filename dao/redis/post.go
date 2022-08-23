@@ -2,8 +2,18 @@ package redis
 
 import (
 	"github.com/go-redis/redis"
+	"strconv"
+	"time"
 	"webapp.io/models"
 )
+
+func getIdsFromKey(key string, page, size int64) ([]string, error) {
+	// 2. 确定要查询索引起始点
+	start := (page - 1) * p.Size
+	end := start + size - 1
+	// 3. 使用 ZRevRange 查询数据
+	return rdb.ZRevRange(key, start, end).Result()
+}
 
 // GetPostIDsInOrder returns an error if it fails to get the post IDs in order
 func GetPostIDsInOrder(p *models.ParamPostList) ([]string, error) {
@@ -14,10 +24,7 @@ func GetPostIDsInOrder(p *models.ParamPostList) ([]string, error) {
 		key = getRedisKey(KeyPostScoreZSet)
 	}
 	// 2. 确定要查询索引起始点
-	start := (p.Page - 1) * p.Size
-	end := start + p.Size - 1
-	// 3. 使用 ZRevRange 查询数据
-	return rdb.ZRevRange(key, start, end).Result()
+	return getIdsFromKey(key, p.Page, p.Size)
 }
 
 // GetPostVoteData > This function will get the data from the database and return it as a struct
@@ -48,4 +55,35 @@ func GetPostVoteData(ids []string) (data []int64, err error) {
 		data = append(data, count)
 	}
 	return
+}
+
+// GetCommunityPostIDsInOrder returns an error if it fails to get the post IDs in order
+// 根据社区查询 ids
+func GetCommunityPostIDsInOrder(p *models.ParamPostList) ([]string, error) {
+	// 使用 zinterscore 把分区的帖子 zset 与帖子分数的 zset 生成一个新的 zset
+	// 针对新的 zset 按照之前的逻辑获取数据
+	orderKey := getRedisKey(KeyPostTimeZSet)
+	if p.Order == models.OrderScore {
+		orderKey = getRedisKey(KeyPostScoreZSet)
+	}
+	// 社区key
+	communityKey := getRedisKey(KeyCommunityZSetPrefix + strconv.Itoa(int(p.CommunityID)))
+	// 利用缓存key减少 zinterscore 执行次数
+	key := orderKey + strconv.Itoa(int(p.CommunityID))
+	if rdb.Exists(key).Val() < 1 { // 不存在
+		// 不存在需要计算
+		pipeline := rdb.Pipeline()
+		pipeline.ZInterStore(key, redis.ZStore{
+			Aggregate: "MAX",
+		}, communityKey, orderKey)
+		pipeline.Expire(key, 60*time.Second) // 设置超时时间
+		_, err := pipeline.Exec()
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	// 存在的话直接根据key查询ids
+	return getIdsFromKey(key, p.Page, p.Size)
+
 }

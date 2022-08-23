@@ -11,6 +11,7 @@ const (
 	KeyPostTimeZSet        = "post:time"  // ZSet; 帖子以发帖时间作为分数
 	KeyPostScoreZSet       = "post:score" // ZSet; 帖子以投票分数作为分数
 	KeyPostVotedZSetPrefix = "post:voted" // 记录用户以及投票的类型；参数是帖子id：post_id
+	KeyCommunityZSetPrefix = "community:" // ZSet 保存每个分区下的帖子id
 )
 
 // It takes a string and returns a string

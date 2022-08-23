@@ -106,9 +106,9 @@ func GetPostListSortedHandler(c *gin.Context) {
 		return
 	}
 	// c.ShouldBindJSON() // 当请求中携带的参数是json时，使用该方法绑定参数
-
 	// 获取列表信息
-	data, err := post.GetPostListSort(&p)
+	//data, err := post.GetPostListSort(&p)
+	data, err := post.GetPostListNew(p) // 更新接口，合二为一
 	if err != nil {
 		zap.L().Error("post.GetPostListSort() failed", zap.Error(err))
 		responseHandler.ResponseError(c, responseCode.CodeServerBasy)
@@ -117,3 +117,30 @@ func GetPostListSortedHandler(c *gin.Context) {
 	// 返回数据
 	responseHandler.ResponseSuccess(c, data)
 }
+
+//// GetCommunityPostListHandler 根据社区查询帖子列表
+//// GetCommunityPostListHandler gets a list of posts for a community
+//func GetCommunityPostListHandler(c *gin.Context) {
+//	p := &models.ParamPostList{
+//		Page:  1,
+//		Size:  10,
+//		Order: models.OrderTime,
+//	}
+//	// 获取分页数据
+//	err := c.ShouldBindQuery(p)
+//	if err != nil {
+//		responseHandler.ResponseError(c, responseCode.CodeInvalidParam)
+//		return
+//	}
+//	// c.ShouldBindJSON() // 当请求中携带的参数是json时，使用该方法绑定参数
+//
+//	// 获取列表信息
+//	data, err := post.GetCommunityPostList(p)
+//	if err != nil {
+//		zap.L().Error("post.GetCommunityPostList() failed", zap.Error(err))
+//		responseHandler.ResponseError(c, responseCode.CodeServerBasy)
+//		return
+//	}
+//	// 返回数据
+//	responseHandler.ResponseSuccess(c, data)
+//}

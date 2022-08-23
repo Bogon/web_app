@@ -4,6 +4,7 @@ import (
 	"errors"
 	"github.com/go-redis/redis"
 	"math"
+	"strconv"
 	"time"
 )
 
@@ -83,7 +84,7 @@ func VoteForPost(userID, postID string, value float64) (err error) {
 }
 
 // CreatePost > This function creates a new post in the database
-func CreatePost(pID int64) (err error) {
+func CreatePost(pID, communityID int64) (err error) {
 
 	pipeline := rdb.TxPipeline()
 	// 帖子时间
@@ -97,6 +98,10 @@ func CreatePost(pID int64) (err error) {
 		Score:  float64(time.Now().Unix()),
 		Member: pID,
 	})
+
+	// 更新：将帖子添加到对应的社区Set
+	cKey := getRedisKey(KeyCommunityZSetPrefix + strconv.Itoa(int(communityID)))
+	pipeline.SAdd(cKey, pID)
 	_, err = pipeline.Exec()
 	return
 }

@@ -69,7 +69,8 @@ type ParamVoteData struct {
 // @property {int64} Size - The number of records per page
 // @property {string} Order - The order of the list, the default is "desc"
 type ParamPostList struct {
-	Page  int64  `json:"page" form:"page"`
-	Size  int64  `json:"size" form:"size"`
-	Order string `json:"order" form:"order"`
+	CommunityID int64  `json:"communityID" form:"communityID"`
+	Page        int64  `json:"page" form:"page"`
+	Size        int64  `json:"size" form:"size"`
+	Order       string `json:"order" form:"order"`
 }
