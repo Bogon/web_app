@@ -2,7 +2,7 @@ app:
   name: "web_app"
   mode: "dev"
   port: 8000
-  version: "1.1.5"
+  version: "1.0.3"
 
 auth:
   jwt_expire: 10080

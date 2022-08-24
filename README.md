@@ -38,3 +38,16 @@ GET    /api/v1/posts             --> webapp.io/controllers/post.GetPostListHandl
 GET    /api/v1/postssorted       --> webapp.io/controllers/post.GetPostListSortedHandler (4 handlers)
 POST   /api/v1/vote              --> webapp.io/controllers/vote.PostVoteHandler (4 handlers)
 ```
+
+## 添加压测工具 go-wrk
+下载 wrk 仓库代码到本地，然后编译代码使用编译出来的可执行文件，使用下方命令完成压测。
+```Bash
+https://github.com/adjust/go-wrk.git
+
+go mod init
+go mod tidy
+go build
+```
+```Bash
+go-wrk -t=8 -c=100 -n=10000 "http://127.0.0.1:8001/api/v1/posts?size=1&page=1"
+```

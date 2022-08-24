@@ -62,6 +62,7 @@ require (
 require (
 	github.com/BurntSushi/toml v1.1.0 // indirect
 	github.com/KyleBanks/depth v1.2.1 // indirect
+	github.com/adeven/go-wrk v0.0.0-20200418124433-63e11dd31fef // indirect
 	github.com/bwmarrin/snowflake v0.3.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
