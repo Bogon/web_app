@@ -28,15 +28,15 @@ func CreatePostHandler(c *gin.Context) {
 	p := new(models.Post)
 	// 从 c 中获取当前登录用户ID
 	userID, err := requestHandler.GetCurrentUserID(c)
+	if err != nil {
+		responseHandler.ResponseError(c, responseCode.CodeToLogin)
+		return
+	}
+
 	p.AuthorID = userID
 
 	if err := c.ShouldBindJSON(p); err != nil {
 		responseHandler.ResponseError(c, responseCode.CodeInvalidParam)
-		return
-	}
-
-	if err != nil {
-		responseHandler.ResponseError(c, responseCode.CodeToLogin)
 		return
 	}
 
