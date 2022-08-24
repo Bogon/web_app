@@ -4,6 +4,8 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	swaggerFiles "github.com/swaggo/files"
+	gs "github.com/swaggo/gin-swagger"
 	"go.uber.org/zap"
 	"net/http"
 	"os"
@@ -14,6 +16,7 @@ import (
 	"webapp.io/controllers/validatorHandler"
 	"webapp.io/dao/mysql"
 	"webapp.io/dao/redis"
+	_ "webapp.io/docs"
 	"webapp.io/logger"
 	"webapp.io/pkg/snowflakeID"
 	"webapp.io/settings"
@@ -21,6 +24,20 @@ import (
 
 // Go Web开发较通用的脚手架模板
 
+// @title webapp.io 帖子发布系统
+// @version 1.0
+// @description 帖子发布系统
+// @termsOfService http://swagger.io/terms/
+
+// @contact.name Senyas
+// @contact.url http://www.swagger.io/support
+// @contact.email sains@gmail.com
+
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
+
+// @host http://127.0.0.1:8001
+// @BasePath /api/v1
 func main() {
 	var filePath string
 	flag.StringVar(&filePath, "f", "./conf/config.yaml", "配置文件相对路径")
@@ -67,6 +84,8 @@ func main() {
 
 	// 5. 注册路由
 	r := appRoutes.Setup(settings.Conf.AppConf.Mode)
+
+	r.GET("/swagger/*any", gs.WrapHandler(swaggerFiles.Handler))
 
 	// 5.1 初始化分布式ID生成框架
 	if err := snowflakeID.Init("2022-08-16", 1); err != nil {

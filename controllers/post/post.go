@@ -86,14 +86,23 @@ func GetPostListHandler(c *gin.Context) {
 	responseHandler.ResponseSuccess(c, data)
 }
 
-// GetPostListSortedHandler gets a list of posts.
-// 修改帖子列表接口，根据的用户传递过来的参数动态获取参数列表
-// 按照 创建时间排序 或者 按照分数排序
-// 1. 获取参数
-// 2. redis 查询时间id 列表
-// 3. 根据id到帖子数据库获取帖子详情信息
+// GetPostListSortedHandler 升级版帖子列表接口 gets a list of posts.
+// @Summary 升级版帖子列表接口
+// @Description 可按社区按时间或分数排序查询帖子列表接口
+// @Tags 帖子相关接口
+// @Accept application/json
+// @Produce application/json
+// @Param Authorization header string false "Bearer 用户令牌"
+// @Param object query models.ParamPostList false "查询参数"
+// @Security ApiKeyAuth
+// @Success 200
+// @Router /postssorted [get]
 func GetPostListSortedHandler(c *gin.Context) {
-
+	// 修改帖子列表接口，根据的用户传递过来的参数动态获取参数列表
+	// 按照 创建时间排序 或者 按照分数排序
+	// 1. 获取参数
+	// 2. redis 查询时间id 列表
+	// 3. 根据id到帖子数据库获取帖子详情信息
 	p := &models.ParamPostList{
 		Page:  1,
 		Size:  10,
