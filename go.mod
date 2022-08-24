@@ -44,6 +44,8 @@ replace webapp.io/logic/voted => ./logic/voted
 
 replace webapp.io/controllers/vote => ./controllers/vote
 
+replace webapp.io/middlewares/ratelimit => ./middlewares/ratelimit
+
 require (
 	github.com/swaggo/files v0.0.0-20220728132757-551d4a08d97a
 	github.com/swaggo/gin-swagger v1.5.2
@@ -54,7 +56,6 @@ require (
 	webapp.io/dao/mysql v0.0.0-00010101000000-000000000000
 	webapp.io/dao/redis v0.0.0-00010101000000-000000000000
 	webapp.io/logger v0.0.0-00010101000000-000000000000
-	webapp.io/models v0.0.0-00010101000000-000000000000
 	webapp.io/pkg/snowflakeID v0.0.0-00010101000000-000000000000
 	webapp.io/settings v0.0.0-00010101000000-000000000000
 )
@@ -62,7 +63,6 @@ require (
 require (
 	github.com/BurntSushi/toml v1.1.0 // indirect
 	github.com/KyleBanks/depth v1.2.1 // indirect
-	github.com/adeven/go-wrk v0.0.0-20200418124433-63e11dd31fef // indirect
 	github.com/bwmarrin/snowflake v0.3.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
@@ -82,6 +82,7 @@ require (
 	github.com/jmoiron/sqlx v1.3.5 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/juju/ratelimit v1.0.2 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
@@ -122,5 +123,7 @@ require (
 	webapp.io/logic/user v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/logic/voted v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/middlewares/jwtauth v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/middlewares/ratelimit v0.0.0-00010101000000-000000000000 // indirect
+	webapp.io/models v0.0.0-00010101000000-000000000000 // indirect
 	webapp.io/pkg/jwt v0.0.0-00010101000000-000000000000 // indirect
 )

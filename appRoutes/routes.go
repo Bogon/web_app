@@ -3,12 +3,14 @@ package appRoutes
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"time"
 	"webapp.io/controllers/community"
 	"webapp.io/controllers/post"
 	"webapp.io/controllers/userHanlder"
 	"webapp.io/controllers/vote"
 	"webapp.io/logger"
 	"webapp.io/middlewares/jwtauth"
+	"webapp.io/middlewares/ratelimit"
 )
 
 func Setup(mode string) *gin.Engine {
@@ -16,7 +18,8 @@ func Setup(mode string) *gin.Engine {
 		gin.SetMode(gin.ReleaseMode) // gin 设置成发布模式
 	}
 	r := gin.New()
-	r.Use(logger.GinLogger(), logger.GinRecovery(true))
+	// 对全站做流量限制
+	r.Use(logger.GinLogger(), logger.GinRecovery(true), ratelimit.RateLimitMiddleware(2*time.Second, 1))
 
 	v1 := r.Group("api/v1")
 

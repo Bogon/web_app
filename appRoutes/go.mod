@@ -42,6 +42,8 @@ replace webapp.io/logic/voted => ../logic/voted
 
 replace webapp.io/dao/redis => ../dao/redis
 
+replace webapp.io/middlewares/ratelimit => ../middlewares/ratelimit
+
 require (
 	github.com/gin-gonic/gin v1.8.1
 	webapp.io/controllers/community v0.0.0-00010101000000-000000000000
@@ -50,6 +52,7 @@ require (
 	webapp.io/controllers/vote v0.0.0-00010101000000-000000000000
 	webapp.io/logger v0.0.0-00010101000000-000000000000
 	webapp.io/middlewares/jwtauth v0.0.0-00010101000000-000000000000
+	webapp.io/middlewares/ratelimit v0.0.0-00010101000000-000000000000
 )
 
 require (
@@ -66,6 +69,7 @@ require (
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jmoiron/sqlx v1.3.5 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/juju/ratelimit v1.0.2 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
