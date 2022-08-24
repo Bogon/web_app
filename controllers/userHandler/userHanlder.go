@@ -15,6 +15,17 @@ import (
 )
 
 // UserSignUpHandler is a function that takes a pointer to a gin.Context and returns nothing.
+// UserSignUpHandler 注册
+// @Summary 注册
+// @Description 注册新用户
+// @Tags 用户相关接口
+// @Accept application/json
+// @Produce application/json
+// @Param Authorization header string false "Bearer 用户令牌"
+// @Param object query models.ParamSignUp false "查询参数"
+// @Security ApiKeyAuth
+// @Success 200 {object} responseHandler.ResponseData
+// @Router /api/v1/signup [post]
 func UserSignUpHandler(c *gin.Context) {
 	// 1. 获取参数和参数校验
 	p := new(models.ParamSignUp)
@@ -48,6 +59,17 @@ func UserSignUpHandler(c *gin.Context) {
 }
 
 // UserLoginHandler is a function that takes a pointer to a gin.Context and returns nothing.
+// UserLoginHandler 登录
+// @Summary 登录
+// @Description 登录获取token
+// @Tags 用户相关接口
+// @Accept application/json
+// @Produce application/json
+// @Param Authorization header string false "Bearer 用户令牌"
+// @Param object query models.ParamLogin false "查询参数"
+// @Security ApiKeyAuth
+// @Success 200 {object} responseHandler.ResponseData
+// @Router /api/v1/login [post]
 func UserLoginHandler(c *gin.Context) {
 	u := new(models.ParamLogin)
 	// 1. 获取请求参数，进行参数校验

@@ -1,19 +1,300 @@
 basePath: /api/v1
+definitions:
+  models.ApiPostDetail:
+    properties:
+      authorID:
+        example: "0"
+        type: string
+      authorName:
+        type: string
+      communityID:
+        example: "0"
+        type: string
+      content:
+        type: string
+      createTime:
+        type: string
+      id:
+        example: "0"
+        type: string
+      introduction:
+        type: string
+      name:
+        type: string
+      postID:
+        example: "0"
+        type: string
+      status:
+        type: integer
+      title:
+        type: string
+      updateTime:
+        type: string
+      voteNum:
+        type: integer
+    required:
+    - authorID
+    - communityID
+    - content
+    - title
+    type: object
+  models.Community:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  models.CommunityDetail:
+    properties:
+      createTime:
+        type: string
+      id:
+        example: "0"
+        type: string
+      introduction:
+        type: string
+      name:
+        type: string
+      updateTime:
+        type: string
+    type: object
+  responseHandler.ResponseData:
+    properties:
+      code:
+        type: integer
+      data:
+        description: omitempty 忽略空值/即不显示空值
+      msg: {}
+    type: object
 host: http://127.0.0.1:8001
 info:
-  contact:
-    email: sains@gmail.com
-    name: Senyas
-    url: http://www.swagger.io/support
+  contact: {}
   description: 帖子发布系统
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  termsOfService: http://swagger.io/terms/
-  title: webapp.io 帖子发布系统
+  title: 帖子发布系统
   version: "1.0"
 paths:
-  /postssorted:
+  /api/v1/community:
+    get:
+      consumes:
+      - application/json
+      description: 查询发布帖子社区列表
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Community'
+            type: array
+      security:
+      - ApiKeyAuth: []
+      summary: 发布帖子接口
+      tags:
+      - 社区相关接口
+  /api/v1/community/:id:
+    get:
+      consumes:
+      - application/json
+      description: 查询社区详情
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - description: Community ID
+        in: query
+        name: id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CommunityDetail'
+      security:
+      - ApiKeyAuth: []
+      summary: 获取社区详情接口
+      tags:
+      - 社区相关接口
+  /api/v1/login:
+    post:
+      consumes:
+      - application/json
+      description: 登录获取token
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - in: query
+        name: password
+        required: true
+        type: string
+      - in: query
+        name: username
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responseHandler.ResponseData'
+      security:
+      - ApiKeyAuth: []
+      summary: 登录
+      tags:
+      - 用户相关接口
+  /api/v1/post:
+    post:
+      consumes:
+      - application/json
+      description: 从数据库中查询帖子数据并返回帖子信息
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - example: "0"
+        in: query
+        name: authorID
+        required: true
+        type: string
+      - in: query
+        name: authorName
+        type: string
+      - example: "0"
+        in: query
+        name: communityID
+        required: true
+        type: string
+      - in: query
+        name: content
+        required: true
+        type: string
+      - in: query
+        name: createTime
+        type: string
+      - example: "0"
+        in: query
+        name: id
+        type: string
+      - in: query
+        name: introduction
+        type: string
+      - in: query
+        name: name
+        type: string
+      - example: "0"
+        in: query
+        name: postID
+        type: string
+      - in: query
+        name: status
+        type: integer
+      - in: query
+        name: title
+        required: true
+        type: string
+      - in: query
+        name: updateTime
+        type: string
+      - in: query
+        name: voteNum
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ApiPostDetail'
+      security:
+      - ApiKeyAuth: []
+      summary: 查询帖子详情接口
+      tags:
+      - 帖子相关接口
+  /api/v1/posts:
+    post:
+      consumes:
+      - application/json
+      description: 查询帖子列表接口
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - example: "0"
+        in: query
+        name: authorID
+        required: true
+        type: string
+      - in: query
+        name: authorName
+        type: string
+      - example: "0"
+        in: query
+        name: communityID
+        required: true
+        type: string
+      - in: query
+        name: content
+        required: true
+        type: string
+      - in: query
+        name: createTime
+        type: string
+      - example: "0"
+        in: query
+        name: id
+        type: string
+      - in: query
+        name: introduction
+        type: string
+      - in: query
+        name: name
+        type: string
+      - example: "0"
+        in: query
+        name: postID
+        type: string
+      - in: query
+        name: status
+        type: integer
+      - in: query
+        name: title
+        required: true
+        type: string
+      - in: query
+        name: updateTime
+        type: string
+      - in: query
+        name: voteNum
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.ApiPostDetail'
+            type: array
+      security:
+      - ApiKeyAuth: []
+      summary: 查询帖子列表接口
+      tags:
+      - 帖子相关接口
+  /api/v1/postssorted:
     get:
       consumes:
       - application/json
@@ -39,10 +320,84 @@ paths:
       - application/json
       responses:
         "200":
-          description: ""
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.ApiPostDetail'
+            type: array
       security:
       - ApiKeyAuth: []
       summary: 升级版帖子列表接口
       tags:
       - 帖子相关接口
+  /api/v1/signup:
+    post:
+      consumes:
+      - application/json
+      description: 注册新用户
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - in: query
+        name: password
+        required: true
+        type: string
+      - in: query
+        name: re_password
+        required: true
+        type: string
+      - in: query
+        name: username
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responseHandler.ResponseData'
+      security:
+      - ApiKeyAuth: []
+      summary: 注册
+      tags:
+      - 用户相关接口
+  /api/v1/vote:
+    post:
+      consumes:
+      - application/json
+      description: 在允许的时间内可以发起投票并进行投票
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - description: 赞成票(1)还是反对票(-1)取消投票(0); 只能是其中的一个
+        enum:
+        - 1
+        - 0
+        - -1
+        example: "0"
+        in: query
+        name: direction
+        type: string
+      - description: UserID 从当前请求中获取当前用户
+        in: query
+        name: post_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responseHandler.ResponseData'
+      security:
+      - ApiKeyAuth: []
+      summary: 为帖子投票接口
+      tags:
+      - 投票相关接口
 swagger: "2.0"

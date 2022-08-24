@@ -12,6 +12,17 @@ import (
 )
 
 // CreatePostHandler is a function that takes a pointer to a gin.Context and returns nothing.
+// CreatePostHandler 发布帖子接口
+// @Summary 发布帖子接口
+// @Description 写入必要的信息提交新帖子保存到数据库
+// @Tags 帖子相关接口
+// @Accept application/json
+// @Produce application/json
+// @Param Authorization header string false "Bearer 用户令牌"
+// @Param object query models.Post false "查询参数"
+// @Security ApiKeyAuth
+// @Success 200 {object} nil
+// @Router /api/v1/post [post]
 func CreatePostHandler(c *gin.Context) {
 	// 1. 获取参数以及参数的校验
 	p := new(models.Post)
@@ -41,6 +52,17 @@ func CreatePostHandler(c *gin.Context) {
 }
 
 // GetPostDetailHandler is a function that takes a pointer to a gin.Context and returns nothing.
+// GetPostDetailHandler 查询帖子详情接口
+// @Summary 查询帖子详情接口
+// @Description 从数据库中查询帖子数据并返回帖子信息
+// @Tags 帖子相关接口
+// @Accept application/json
+// @Produce application/json
+// @Param Authorization header string false "Bearer 用户令牌"
+// @Param object query models.ApiPostDetail false "查询参数"
+// @Security ApiKeyAuth
+// @Success 200 {object} models.ApiPostDetail
+// @Router /api/v1/post [post]
 func GetPostDetailHandler(c *gin.Context) {
 	// 1. 获取到postID参数并校验
 	idStr := c.Param("id")
@@ -62,6 +84,17 @@ func GetPostDetailHandler(c *gin.Context) {
 }
 
 // GetPostListHandler gets a list of posts.
+// GetPostListHandler 查询帖子列表接口
+// @Summary 查询帖子列表接口
+// @Description 查询帖子列表接口
+// @Tags 帖子相关接口
+// @Accept application/json
+// @Produce application/json
+// @Param Authorization header string false "Bearer 用户令牌"
+// @Param object query models.ApiPostDetail false "查询参数"
+// @Security ApiKeyAuth
+// @Success 200 {object} []models.ApiPostDetail
+// @Router /api/v1/posts [post]
 func GetPostListHandler(c *gin.Context) {
 
 	var (
@@ -95,8 +128,8 @@ func GetPostListHandler(c *gin.Context) {
 // @Param Authorization header string false "Bearer 用户令牌"
 // @Param object query models.ParamPostList false "查询参数"
 // @Security ApiKeyAuth
-// @Success 200
-// @Router /postssorted [get]
+// @Success 200 {object} []models.ApiPostDetail
+// @Router /api/v1/postssorted [get]
 func GetPostListSortedHandler(c *gin.Context) {
 	// 修改帖子列表接口，根据的用户传递过来的参数动态获取参数列表
 	// 按照 创建时间排序 或者 按照分数排序

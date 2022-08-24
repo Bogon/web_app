@@ -13,6 +13,17 @@ import (
 )
 
 // PostVoteHandler > PostVoteHandler is a function that takes a pointer to a gin.Context and returns nothing
+// PostVoteHandler 为帖子投票
+// @Summary 为帖子投票接口
+// @Description 在允许的时间内可以发起投票并进行投票
+// @Tags 投票相关接口
+// @Accept application/json
+// @Produce application/json
+// @Param Authorization header string false "Bearer 用户令牌"
+// @Param object query models.ParamVoteData false "查询参数"
+// @Security ApiKeyAuth
+// @Success 200 {object} responseHandler.ResponseData
+// @Router /api/v1/vote [post]
 func PostVoteHandler(c *gin.Context) {
 
 	// 1. 参数校验

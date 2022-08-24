@@ -12,6 +12,16 @@ import (
 //  ---- 跟社区相关的 ----
 
 // GetCommunityHandler Get all the communities and return them in a list
+// GetCommunityHandler 获取社区列表
+// @Summary 发布帖子接口
+// @Description 查询发布帖子社区列表
+// @Tags 社区相关接口
+// @Accept application/json
+// @Produce application/json
+// @Param Authorization header string false "Bearer 用户令牌"
+// @Security ApiKeyAuth
+// @Success 200 {object} []models.Community
+// @Router /api/v1/community [get]
 func GetCommunityHandler(c *gin.Context) {
 	// 查询到所有的社区，然后一列表的形式给出来(community_id, community_name)
 	data, err := community.GetCommunityList()
@@ -24,6 +34,17 @@ func GetCommunityHandler(c *gin.Context) {
 }
 
 // GetCommunityDetailHandler is a function that returns a gin.HandlerFunc
+// GetCommunityDetailHandler 获取社区详情
+// @Summary 获取社区详情接口
+// @Description 查询社区详情
+// @Tags 社区相关接口
+// @Accept application/json
+// @Produce application/json
+// @Param Authorization header string false "Bearer 用户令牌"
+// @Param id query int64  false  "Community ID"
+// @Security ApiKeyAuth
+// @Success 200 {object} models.CommunityDetail
+// @Router /api/v1/community/:id [get]
 func GetCommunityDetailHandler(c *gin.Context) {
 	// 1. 获取社区ID
 	idStr := c.Param("id")
