@@ -13,7 +13,7 @@ var (
 )
 
 func Init(conf *settings.MySQLConf) (err error) {
-	dsn := fmt.Sprintf(`%v:%v@tcp(%v:%v)/%v?charset=utf8mb4&parseTime=True`,
+	dsn := fmt.Sprintf(`%v:%v@tcp(%v:%v)/%v?charset=utf8mb4&parseTime=True&loc=Local`,
 		conf.User, conf.Password,
 		conf.Host, conf.Port, conf.Dbname)
 	db, err = sqlx.Connect("mysql", dsn)

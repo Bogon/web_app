@@ -5,13 +5,13 @@ BINARY="webapp.io"
 all: gotool build
 
 build:
-	@CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ${BINARY}
+	@CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags "-s -w" -o ./bin/${BINARY}
 
 buildmac:
-	@sudo go build  -buildvcs=false
+	@CGO_ENABLED=0 GOOS=linux GOARCH=amd64 sudo  go build  -ldflags "-s -w" -o ./bin/${BINARY} -buildvcs=false
 
 run:
-	@go run ./
+	@go run ./ ./conf/config.yaml
 
 runmac:
 	@sudo go run ./

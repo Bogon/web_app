@@ -45,6 +45,7 @@ replace webapp.io/dao/redis => ../dao/redis
 replace webapp.io/middlewares/ratelimit => ../middlewares/ratelimit
 
 require (
+	github.com/gin-contrib/pprof v1.4.0
 	github.com/gin-gonic/gin v1.8.1
 	webapp.io/controllers/community v0.0.0-00010101000000-000000000000
 	webapp.io/controllers/post v0.0.0-00010101000000-000000000000

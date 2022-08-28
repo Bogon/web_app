@@ -1,7 +1,7 @@
 app:
   name: "web_app"
   mode: "dev"
-  port: 8000
+  port: 8001
   version: "1.0.3"
 
 auth:
@@ -16,7 +16,7 @@ log:
   max_backups: 7
 
 mysql:
-  host: "127.0.0.1"
+  host: mysql8029
   port: 3306
   user: "root"
   password: "123456"
@@ -25,7 +25,7 @@ mysql:
   idel_max_conns: 500
 
 redis:
-  host: "127.0.0.1"
+  host: redis704
   port: 6379
   password: ""
   db: 0
